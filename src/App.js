@@ -8,6 +8,7 @@ import {
   Routes,
   Route,
 } from "react-router-dom";
+import Users from "./pages/users/Users";
 
 function App() {
   return (
@@ -26,6 +27,9 @@ function App() {
               <Route index element={<List />} />
               <Route path=":productId" element={<Single />} />
               <Route path="new" element={<New />} />
+            </Route>
+            <Route path="experiment" >
+              <Route index element={<Users />} />
             </Route>
           </Route>
         </Routes>
