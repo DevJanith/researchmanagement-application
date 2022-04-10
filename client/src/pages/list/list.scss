@@ -1,0 +1,21 @@
+.list {
+  display: flex;
+  width: 100%;
+
+  .listContainer {
+    flex: 6;
+
+    .Container {
+      display: flex;
+      width: 100%;
+      .tableContainer {
+        flex: 2;
+      }
+
+      .formContainer {
+        flex: 1;
+        padding: 20px;
+      }
+    }
+  }
+}

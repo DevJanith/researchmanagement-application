@@ -1,0 +1,27 @@
+.form {
+  box-shadow: rgba(0, 0, 0, 0.08) 0px 4px 12px;
+  padding: 10px;
+  color: gray;
+
+  .formHeaderContainer {
+    margin-bottom: 20px;
+  }
+  .formFieldsContainer {
+    display: flex;
+    gap: 10px;
+    padding-bottom: 20px;
+
+    .formFields {
+      display: flex;
+      flex: 1;
+      justify-content: space-between;
+      width: 100%;
+    }
+  }
+
+  .formActivityContainer {
+    display: flex;
+    gap: 10px;
+    padding-bottom: 20px;
+  }
+}
