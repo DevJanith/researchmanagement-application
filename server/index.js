@@ -9,6 +9,7 @@ import StudentRoutes from "./routes/Student.js";
 import StudentContactRoutes from "./routes/StudentContactNo.js";
 import GroupRoutes from "./routes/Group.js";
 import GroupDetailsRoutes from "./routes/GroupDetails.js";
+import PresentationTempRoutes from "./routes/PresentationTemplate.js";
 
 const app = express(); 
 
@@ -21,6 +22,7 @@ app.use('/Student', StudentRoutes);
 app.use('/StudentCon', StudentContactRoutes);
 app.use('/Group', GroupRoutes);
 app.use('/GroupDetails', GroupDetailsRoutes);
+app.use('/PresentationTemp', PresentationTempRoutes);
 
 const CONNECTION_URL = "mongodb+srv://user:YEsowdUiBU9QnAEy@researchmanagement-appl.vzhn4.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
 const PORT = process.env.PORT || 5000;
