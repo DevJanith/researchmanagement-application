@@ -5,6 +5,7 @@ import cors from 'cors';
 
 //import routes
 import postRoutes from "./routes/posts.js";
+import StudentRoutes from "./routes/Student.js";
 
 const app = express(); 
 
@@ -13,6 +14,7 @@ app.use(bodyParser.urlencoded({ limit: "30mb", extended: true }));
 app.use(cors());
 
 app.use('/posts', postRoutes);
+app.use('/Student', StudentRoutes);
 
 const CONNECTION_URL = "mongodb+srv://user:YEsowdUiBU9QnAEy@researchmanagement-appl.vzhn4.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
 const PORT = process.env.PORT || 5000;
