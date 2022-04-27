@@ -14,3 +14,4 @@ const adminSchema = mongoose.Schema({
 
 const admin = mongoose.model('admin', adminSchema);
 export default admin;
+//test commit
