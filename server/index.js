@@ -10,6 +10,14 @@ import StudentContactRoutes from "./routes/StudentContactNo.js";
 import GroupRoutes from "./routes/Group.js";
 import GroupDetailsRoutes from "./routes/GroupDetails.js";
 import PresentationTempRoutes from "./routes/PresentationTemplate.js";
+import panelRoutes from "./routes/panel.js";
+import panelMemberRoutes from "./routes/panelMember.js";
+import staffRoutes from "./routes/staff.js";
+import staffContactNoRoutes from "./routes/staffContactNo.js";
+import staffEmailRoutes from "./routes/staffEmail.js";
+import adminRoutes from "./routes/admin.js";
+import markingSchemaRoutes from "./routes/markingSchema.js";
+import markingSchemaDescriptionRoutes from "./routes/markingSchemaDescription.js";
 
 const app = express(); 
 
@@ -23,6 +31,14 @@ app.use('/StudentCon', StudentContactRoutes);
 app.use('/Group', GroupRoutes);
 app.use('/GroupDetails', GroupDetailsRoutes);
 app.use('/PresentationTemp', PresentationTempRoutes);
+app.use('/panel', panelRoutes);
+app.use('/panelMember', panelMemberRoutes);
+app.use('/staff', staffRoutes);
+app.use('/staffContactNo', staffContactNoRoutes);
+app.use('/staffEmail', staffEmailRoutes);
+app.use('/admin', adminRoutes);
+app.use('/markingSchema', markingSchemaRoutes);
+app.use('/markingSchemaDescription', markingSchemaDescriptionRoutes);
 
 const CONNECTION_URL = "mongodb+srv://user:YEsowdUiBU9QnAEy@researchmanagement-appl.vzhn4.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
 const PORT = process.env.PORT || 5000;

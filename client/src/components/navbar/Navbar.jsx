@@ -6,8 +6,16 @@ import FullscreenExitOutlinedIcon from "@mui/icons-material/FullscreenExitOutlin
 import NotificationsNoneOutlinedIcon from "@mui/icons-material/NotificationsNoneOutlined";
 import ChatBubbleOutlineOutlinedIcon from "@mui/icons-material/ChatBubbleOutlineOutlined";
 import ListOutlinedIcon from "@mui/icons-material/ListOutlined";
+import LightModeOutlinedIcon from "@mui/icons-material/LightModeOutlined";
+import { useContext } from "react";
+import { DarkModeContext } from "../../context/darkModeContext";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
+  const { dispatch, darkMode } = useContext(DarkModeContext);
+
+  // console.log(darkMode);
+
   return (
     <div className="navbar">
       <div className="wrapper">
@@ -21,7 +29,19 @@ const Navbar = () => {
             English
           </div>
           <div className="item">
-            <DarkModeOutlinedIcon className="icon" />
+            {darkMode ? (
+              <LightModeOutlinedIcon
+                className="icon"
+                onClick={() => dispatch({ type: "TOGGLE" })}
+                style={{ cursor: "pointer" }}
+              />
+            ) : (
+              <DarkModeOutlinedIcon
+                className="icon"
+                onClick={() => dispatch({ type: "TOGGLE" })}
+                style={{ cursor: "pointer" }}
+              />
+            )}
           </div>
           <div className="item">
             <FullscreenExitOutlinedIcon className="icon" />
@@ -38,11 +58,13 @@ const Navbar = () => {
             <ListOutlinedIcon className="icon" />
           </div>
           <div className="item">
-            <img
-              src="https://images.pexels.com/photos/415829/pexels-photo-415829.jpeg?cs=srgb&dl=pexels-pixabay-415829.jpg&fm=jpg"
-              alt=""
-              className="avatar"
-            />
+            <Link to={"/users/1"} style={{ textDecoration: "none" }}>
+              <img
+                src="https://images.pexels.com/photos/415829/pexels-photo-415829.jpeg?cs=srgb&dl=pexels-pixabay-415829.jpg&fm=jpg"
+                alt=""
+                className="avatar"
+              />
+            </Link>
           </div>
         </div>
       </div>
