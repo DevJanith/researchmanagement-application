@@ -4,17 +4,17 @@
 
   .listContainer {
     flex: 6;
+    box-shadow: 2px 4px 10px 1px rgba(201, 201, 201, 0.47);
 
-    .Container {
+    .datatable-api {
       display: flex;
-      width: 100%;
-      .tableContainer {
-        flex: 2;
+
+      .left {
+        flex: 6;
       }
 
-      .formContainer {
-        flex: 1;
-        padding: 20px;
+      .right {
+        flex: 4;
       }
     }
   }

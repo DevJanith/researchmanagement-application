@@ -1,50 +1,14 @@
-import "./datatable.scss";
 import { DataGrid } from "@mui/x-data-grid";
+import { useState } from "react";
+import { Link } from "react-router-dom";
 import { userColumns, userRows } from "../../datatatablesource";
-
-import { useDispatch, useSelector } from "react-redux";
-import { useEffect } from "react";
-import { deletePost, getPosts } from "../../actions/posts";
-
-export const postsColumns = [
-  {
-    field: "_id",
-    headerName: "Post ID",
-    width: 100,
-  },
-  {
-    field: "title",
-    headerName: "Post Title",
-    width: 100,
-  },
-  {
-    field: "creator",
-    headerName: "Post Creator",
-    width: 200,
-  },
-  {
-    field: "message",
-    headerName: "Post message",
-    width: 150,
-  },
-];
+import "./datatable.scss";
 
 const Datatable = () => {
-  const dispatch = useDispatch();
+  const [data, setData] = useState(userRows);
 
-  useEffect(() => {
-    try {
-      dispatch(getPosts());
-    } catch (error) {
-      console.log(error);
-    }
-  }, [dispatch]);
-
-  const posts = useSelector((state) => state.posts);
-
-  const handleDelete = (value) => {
-    dispatch(deletePost(value));
-    dispatch(getPosts());
+  const handleDelete = (id) => {
+    setData(data.filter((item) => item.id !== id));
   };
 
   const actionColumn = [
@@ -55,12 +19,12 @@ const Datatable = () => {
       renderCell: (params) => {
         return (
           <div className="cellAction">
-            <div className="viewButton">View</div>
+            <Link to={"/users/:id"} style={{ textDecoration: "none" }}>
+              <div className="viewButton">View</div>
+            </Link>
             <div
               className="deleteButton"
-              onClick={() => {
-                handleDelete(params.row._id);
-              }}
+              onClick={() => handleDelete(params.row.id)}
             >
               Delete
             </div>
@@ -69,13 +33,22 @@ const Datatable = () => {
       },
     },
   ];
-
   return (
     <div className="datatable">
+      <div className="datatableTitle">
+        User Details
+        <Link
+          to={"/users/new"}
+          style={{ textDecoration: "none" }}
+          className="link"
+        >
+          Add New
+        </Link>
+      </div>
       <DataGrid
-        getRowId={(row) => row._id}
-        rows={posts}
-        columns={postsColumns.concat(actionColumn)}
+        className="datagrid"
+        rows={userRows}
+        columns={userColumns.concat(actionColumn)}
         pageSize={9}
         rowsPerPageOptions={[9]}
         checkboxSelection
