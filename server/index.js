@@ -5,6 +5,11 @@ import cors from 'cors';
 
 //import routes
 import postRoutes from "./routes/posts.js";
+import StudentRoutes from "./routes/Student.js";
+import StudentContactRoutes from "./routes/StudentContactNo.js";
+import GroupRoutes from "./routes/Group.js";
+import GroupDetailsRoutes from "./routes/GroupDetails.js";
+import PresentationTempRoutes from "./routes/PresentationTemplate.js";
 import panelRoutes from "./routes/panel.js";
 import panelMemberRoutes from "./routes/panelMember.js";
 import staffRoutes from "./routes/staff.js";
@@ -21,6 +26,11 @@ app.use(bodyParser.urlencoded({ limit: "30mb", extended: true }));
 app.use(cors());
 
 app.use('/posts', postRoutes);
+app.use('/Student', StudentRoutes);
+app.use('/StudentCon', StudentContactRoutes);
+app.use('/Group', GroupRoutes);
+app.use('/GroupDetails', GroupDetailsRoutes);
+app.use('/PresentationTemp', PresentationTempRoutes);
 app.use('/panel', panelRoutes);
 app.use('/panelMember', panelMemberRoutes);
 app.use('/staff', staffRoutes);
