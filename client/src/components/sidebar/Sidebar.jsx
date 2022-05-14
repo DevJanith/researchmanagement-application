@@ -138,7 +138,7 @@ const Sidebar = () => {
         ></div>
       </div>
       <div style={{ margin: "20px" }}>
-        <h5>{user != null ? user?.result.name : "Janith Gamage"}</h5>
+        <h5>{user != null ? user?.result.name : "Currently No User Available"}</h5>
       </div>
     </div>
   );
