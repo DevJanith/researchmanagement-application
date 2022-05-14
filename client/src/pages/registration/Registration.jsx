@@ -7,10 +7,10 @@ import InputAdornment from "@mui/material/InputAdornment";
 import InputLabel from "@mui/material/InputLabel";
 import OutlinedInput from "@mui/material/OutlinedInput";
 import * as React from "react";
-import "./login.scss";
+import "./registration.scss";
 import { Link } from "react-router-dom";
 
-const Login = () => {
+const Registration = () => {
   const [values, setValues] = React.useState({
     userName: "",
     amount: "",
@@ -35,19 +35,19 @@ const Login = () => {
     event.preventDefault();
   };
   return (
-    <div className="login">
+    <div className="registration">
       {/* <Sidebar /> */}
-      <div className="loginContainer">
+      <div className="registrationContainer">
         {/* <Navbar /> */}
-        <div className="loginForm">
+        <div className="registrationForm">
           <div className="top">
             <div className="title">Research Management Application</div>
           </div>
           <div className="bottom">
             <div className="left">
-              <h1 className="title">Login</h1>
+              <h1 className="title">Registration</h1>
               <h1 className="description">
-                Login to the Research Management Application
+                Registration to the Research Management Application
               </h1>
               <Grid container spacing={2}>
                 <Grid md={12} sx={{ padding: "10px" }}>
@@ -90,17 +90,17 @@ const Login = () => {
                   </FormControl>
                 </Grid>
                 <h1 className="description2">
-                  Not a User ?{" "}
-                  <Link to={"/registration"} style={{ textDecoration: "none" }}>
+                  Already a User ?{" "}
+                  <Link to={"/login"} style={{ textDecoration: "none" }}>
                     <span style={{ fontWeight: "bold", cursor: "pointer" }}>
-                      Register Here
+                      Login Here
                     </span>
                   </Link>
                 </h1>
                 <Grid md={12} sx={{ padding: "30px 0" }}>
-                  <Link to={"/"} style={{ textDecoration: "none" }}>
+                  <Link to={"/login"} style={{ textDecoration: "none" }}>
                     <Button variant="contained" size="medium" fullWidth>
-                      Login
+                      Register
                     </Button>
                   </Link>
                 </Grid>
@@ -120,4 +120,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default Registration;

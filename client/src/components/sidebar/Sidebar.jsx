@@ -1,22 +1,42 @@
-import "./sidebar.scss";
-import DashboardIcon from "@mui/icons-material/Dashboard";
-import PersonOutlineOutlinedIcon from "@mui/icons-material/PersonOutlineOutlined";
-import StoreIcon from "@mui/icons-material/Store";
-import PaymentIcon from "@mui/icons-material/Payment";
-import LocalShippingOutlinedIcon from "@mui/icons-material/LocalShippingOutlined";
-import QueryStatsIcon from "@mui/icons-material/QueryStats";
-import NotificationsNoneIcon from "@mui/icons-material/NotificationsNone";
-import SettingsSystemDaydreamIcon from "@mui/icons-material/SettingsSystemDaydream";
-import PsychologyOutlinedIcon from "@mui/icons-material/PsychologyOutlined";
-import SettingsIcon from "@mui/icons-material/Settings";
 import AccountCircleOutlinedIcon from "@mui/icons-material/AccountCircleOutlined";
+import DashboardIcon from "@mui/icons-material/Dashboard";
 import ExitToAppIcon from "@mui/icons-material/ExitToApp";
-import { Link } from "react-router-dom";
-import { useContext } from "react";
+import LocalShippingOutlinedIcon from "@mui/icons-material/LocalShippingOutlined";
+import NotificationsNoneIcon from "@mui/icons-material/NotificationsNone";
+import PaymentIcon from "@mui/icons-material/Payment";
+import PersonOutlineOutlinedIcon from "@mui/icons-material/PersonOutlineOutlined";
+import PsychologyOutlinedIcon from "@mui/icons-material/PsychologyOutlined";
+import QueryStatsIcon from "@mui/icons-material/QueryStats";
+import SettingsIcon from "@mui/icons-material/Settings";
+import SettingsSystemDaydreamIcon from "@mui/icons-material/SettingsSystemDaydream";
+import StoreIcon from "@mui/icons-material/Store";
+import { useContext, useState, useEffect } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import { DarkModeContext } from "../../context/darkModeContext";
+import "./sidebar.scss";
+import { useDispatch } from "react-redux";
 
 const Sidebar = () => {
   const { dispatch } = useContext(DarkModeContext);
+  const [user, setUser] = useState(null);
+
+  const dispatchLogOut = useDispatch();
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    try {
+      setUser(JSON.parse(localStorage.getItem("profile")));
+    } catch (error) {
+      console.log(error);
+    }
+  }, []);
+
+  const logout = () => {
+    console.log("test");
+    dispatchLogOut({ type: "LOGOUT" });
+
+    navigate("/auth");
+  };
 
   return (
     <div className="sidebar">
@@ -99,12 +119,12 @@ const Sidebar = () => {
               <span>Profile</span>
             </li>
           </Link>
-          <Link to={"/under-construction"} style={{ textDecoration: "none" }}>
-            <li>
-              <ExitToAppIcon className="icon" />
-              <span>Logout</span>
-            </li>
-          </Link>
+          {/* <Link to={"/login"} style={{ textDecoration: "none" }}> */}
+          <li onClick={logout}>
+            <ExitToAppIcon className="icon" />
+            <span>Logout</span>
+          </li>
+          {/* </Link> */}
         </ul>
       </div>
       <div className="bottom">
@@ -116,6 +136,9 @@ const Sidebar = () => {
           className="colorOption"
           onClick={() => dispatch({ type: "DARK" })}
         ></div>
+      </div>
+      <div style={{ margin: "20px" }}>
+        <h5>{user != null ? user?.result.name : "Janith Gamage"}</h5>
       </div>
     </div>
   );

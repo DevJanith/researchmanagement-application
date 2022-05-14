@@ -18,6 +18,7 @@ import staffEmailRoutes from "./routes/staffEmail.js";
 import adminRoutes from "./routes/admin.js";
 import markingSchemaRoutes from "./routes/markingSchema.js";
 import markingSchemaDescriptionRoutes from "./routes/markingSchemaDescription.js";
+import userRoutes from "./routes/user.routes.js"
 
 const app = express(); 
 
@@ -39,6 +40,7 @@ app.use('/staffEmail', staffEmailRoutes);
 app.use('/admin', adminRoutes);
 app.use('/markingSchema', markingSchemaRoutes);
 app.use('/markingSchemaDescription', markingSchemaDescriptionRoutes);
+app.use('/user', userRoutes);
 
 const CONNECTION_URL = "mongodb+srv://user:YEsowdUiBU9QnAEy@researchmanagement-appl.vzhn4.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
 const PORT = process.env.PORT || 5000;
