@@ -31,8 +31,7 @@ const Sidebar = () => {
     }
   }, []);
 
-  const logout = () => {
-    console.log("test");
+  const logout = () => { 
     dispatchLogOut({ type: "LOGOUT" });
 
     navigate("/auth");

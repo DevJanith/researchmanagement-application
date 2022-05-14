@@ -1,19 +1,27 @@
-import "./navbar.scss";
-import SearchOutlinedIcon from "@mui/icons-material/SearchOutlined";
-import LanguageOutlinedIcon from "@mui/icons-material/LanguageOutlined";
+import ChatBubbleOutlineOutlinedIcon from "@mui/icons-material/ChatBubbleOutlineOutlined";
 import DarkModeOutlinedIcon from "@mui/icons-material/DarkModeOutlined";
 import FullscreenExitOutlinedIcon from "@mui/icons-material/FullscreenExitOutlined";
-import NotificationsNoneOutlinedIcon from "@mui/icons-material/NotificationsNoneOutlined";
-import ChatBubbleOutlineOutlinedIcon from "@mui/icons-material/ChatBubbleOutlineOutlined";
-import ListOutlinedIcon from "@mui/icons-material/ListOutlined";
+import LanguageOutlinedIcon from "@mui/icons-material/LanguageOutlined";
 import LightModeOutlinedIcon from "@mui/icons-material/LightModeOutlined";
-import { useContext } from "react";
-import { DarkModeContext } from "../../context/darkModeContext";
+import ListOutlinedIcon from "@mui/icons-material/ListOutlined";
+import NotificationsNoneOutlinedIcon from "@mui/icons-material/NotificationsNoneOutlined";
+import SearchOutlinedIcon from "@mui/icons-material/SearchOutlined";
+import { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { DarkModeContext } from "../../context/darkModeContext";
+import "./navbar.scss";
 
 const Navbar = () => {
   const { dispatch, darkMode } = useContext(DarkModeContext);
+  const [user, setUser] = useState(null);
 
+  useEffect(() => {
+    try {
+      setUser(JSON.parse(localStorage.getItem("profile")));
+    } catch (error) {
+      console.log(error);
+    }
+  }, []);
   // console.log(darkMode);
 
   return (
@@ -24,6 +32,13 @@ const Navbar = () => {
           <SearchOutlinedIcon />
         </div>
         <div className="items">
+          <div className="item">
+            <h3>
+              {user != null
+                ? "Welcome " + user?.result.name
+                : "Currently No User Available"}
+            </h3>
+          </div>
           <div className="item">
             <LanguageOutlinedIcon className="icon" />
             English
