@@ -1,0 +1,75 @@
+.registration {
+  display: flex;
+  .registrationContainer {
+    flex: 6;
+
+    .registrationForm {
+      // display: flex;
+      margin: 20px 200px;
+      padding: 20px;
+      -webkit-box-shadow: 2px 4px 10px 1px rgba(0, 0, 0, 0.47);
+      box-shadow: 2px 4px 10px 1px rgba(201, 201, 201, 0.47);
+      border-radius: 10px;
+
+      .top {
+        height: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        .title {
+          font-size: 30px;
+          font-weight: bold;
+          color: rgb(0, 0, 0);
+          margin-top: 15px;
+          margin-bottom: 50px;
+        }
+      }
+
+      .bottom {
+        display: flex;
+
+        .left {
+          flex: 1;
+          margin: 20px;
+
+          .title {
+            font-weight: 500;
+            color: gray;
+            margin-bottom: 15px;
+          }
+
+          .description {
+            font-size: 16px;
+            font-weight: 500;
+            color: gray;
+            margin-bottom: 30px;
+          }
+
+          .fieldContainer {
+            padding: 10px;
+          }
+
+          .description2 {
+            font-size: 16px;
+            font-weight: 500;
+            color: gray;
+            margin: 20px 0 0 10px;
+          }
+        }
+
+        .right {
+          flex: 1;
+
+          .image {
+            width: 450px;
+            height: 450px;
+            border-radius: 50%;
+            margin-right: 10px;
+            object-fit: cover;
+          }
+        }
+      }
+    }
+  }
+}
