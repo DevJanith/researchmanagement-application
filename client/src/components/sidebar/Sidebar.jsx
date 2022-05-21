@@ -15,6 +15,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { DarkModeContext } from "../../context/darkModeContext";
 import "./sidebar.scss";
 import { useDispatch } from "react-redux";
+import BookmarksSharpIcon from "@mui/icons-material/BookmarksSharp";
 
 const Sidebar = () => {
   const { dispatch } = useContext(DarkModeContext);
@@ -59,6 +60,13 @@ const Sidebar = () => {
             <li>
               <PersonOutlineOutlinedIcon className="icon" />
               <span>Student Management</span>
+            </li>
+          </Link>
+          <p className="title">Tutorial Management</p>
+          <Link to={"/tutorial-management"} style={{ textDecoration: "none" }}>
+            <li>
+              <BookmarksSharpIcon className="icon" />
+              <span>Tutorial Management</span>
             </li>
           </Link>
           {/* <p className="title">LISTS</p>
