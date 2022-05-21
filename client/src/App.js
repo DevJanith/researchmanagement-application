@@ -13,6 +13,7 @@ import Registration from "./pages/registration/Registration";
 import Single from "./pages/single/Single";
 import StudentManagement from "./pages/StudentManagement/StudentManagement";
 import UnderContraction from "./pages/underContraction/UnderContraction";
+import TutorialManagement from "./pages/TutorialManagement/TutorialManagement";
 import "./style/dark.scss";
 
 function App() {
@@ -28,7 +29,10 @@ function App() {
             <Route path="login" element={<Login />} />
             <Route path="registration" element={<Registration />} />
             <Route path="student-management" >
-              <Route index element={<StudentManagement />} /> 
+              <Route index element={<StudentManagement />} />
+            </Route>
+            <Route path="tutorial-management">
+              <Route index element={<TutorialManagement />} />
             </Route>
             <Route path="users" >
               <Route index element={<List />} />
