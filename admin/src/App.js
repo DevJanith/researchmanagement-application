@@ -4,6 +4,7 @@ import {
 } from "react-router-dom";
 import { DarkModeContext } from "./context/darkModeContext";
 import { userInput } from "./formSource";
+import AdminManagement from "./pages/AdminManagement/AdminManagement";
 import Auth from "./pages/auth/Auth";
 import Home from "./pages/home/Home";
 import List from "./pages/list/list";
@@ -11,6 +12,7 @@ import Login from "./pages/login/Login";
 import New from "./pages/new/New";
 import Registration from "./pages/registration/Registration";
 import Single from "./pages/single/Single";
+import StaffManagement from "./pages/StaffManagement/StaffManagement";
 import UnderContraction from "./pages/underContraction/UnderContraction";
 import "./style/dark.scss";
 
@@ -26,6 +28,12 @@ function App() {
             <Route path="auth" element={<Auth />} />
             <Route path="login" element={<Login />} />
             <Route path="registration" element={<Registration />} />
+            <Route path="admin-management" >
+              <Route index element={<AdminManagement />} />
+            </Route>
+            <Route path="staff-management" >
+              <Route index element={<StaffManagement />} />
+            </Route>
             <Route path="users" >
               <Route index element={<List />} />
               <Route path=":userId" element={<Single />} />

@@ -31,7 +31,7 @@ const Sidebar = () => {
     }
   }, []);
 
-  const logout = () => { 
+  const logout = () => {
     dispatchLogOut({ type: "LOGOUT" });
 
     navigate("/auth");
@@ -41,7 +41,7 @@ const Sidebar = () => {
     <div className="sidebar">
       <div className="top">
         <Link to={"/"} style={{ textDecoration: "none" }}>
-          <span className="logo">UI Admin Template</span>
+          <span className="logo">Admin | RMA</span>
         </Link>
       </div>
       <hr />
@@ -54,7 +54,22 @@ const Sidebar = () => {
               <span>Dashboard</span>
             </li>
           </Link>
-          <p className="title">LISTS</p>
+          <p className="title">Admin Management</p>
+          <Link to={"/admin-management"} style={{ textDecoration: "none" }}>
+            <li>
+              <PersonOutlineOutlinedIcon className="icon" />
+              <span>Admin Management</span>
+            </li>
+          </Link>
+          <p className="title">Staff Management</p>
+          <Link to={"/staff-management"} style={{ textDecoration: "none" }}>
+            <li>
+              <PersonOutlineOutlinedIcon className="icon" />
+              <span>Staff Management</span>
+            </li>
+          </Link>
+
+          {/* <p className="title">LISTS</p>
           <Link to={"/users"} style={{ textDecoration: "none" }}>
             <li>
               <PersonOutlineOutlinedIcon className="icon" />
@@ -117,9 +132,9 @@ const Sidebar = () => {
               <AccountCircleOutlinedIcon className="icon" />
               <span>Profile</span>
             </li>
-          </Link>
+          </Link> */}
           {/* <Link to={"/login"} style={{ textDecoration: "none" }}> */}
-          <li onClick={logout}>
+          <li onClick={logout} style={{ marginTop: "20%" }}>
             <ExitToAppIcon className="icon" />
             <span>Logout</span>
           </li>
@@ -137,7 +152,9 @@ const Sidebar = () => {
         ></div>
       </div>
       <div style={{ margin: "20px" }}>
-        <h5>{user != null ? user?.result.name : "Currently No User Available"}</h5>
+        <h5>
+          {user != null ? user?.result.name : "Currently No User Available"}
+        </h5>
       </div>
     </div>
   );

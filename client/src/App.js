@@ -11,6 +11,7 @@ import Login from "./pages/login/Login";
 import New from "./pages/new/New";
 import Registration from "./pages/registration/Registration";
 import Single from "./pages/single/Single";
+import StudentManagement from "./pages/StudentManagement/StudentManagement";
 import UnderContraction from "./pages/underContraction/UnderContraction";
 import "./style/dark.scss";
 
@@ -26,6 +27,9 @@ function App() {
             <Route path="auth" element={<Auth />} />
             <Route path="login" element={<Login />} />
             <Route path="registration" element={<Registration />} />
+            <Route path="student-management" >
+              <Route index element={<StudentManagement />} /> 
+            </Route>
             <Route path="users" >
               <Route index element={<List />} />
               <Route path=":userId" element={<Single />} />
