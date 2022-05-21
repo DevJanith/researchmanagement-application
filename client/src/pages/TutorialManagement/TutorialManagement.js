@@ -1,12 +1,17 @@
-import * as React from 'react';
-import PropTypes from 'prop-types';
-import Tabs from '@mui/material/Tabs';
-import Tab from '@mui/material/Tab';
-import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
-import Sidebar from '../../components/sidebar/Sidebar';
+import Tab from '@mui/material/Tab';
+import Tabs from '@mui/material/Tabs';
+import Typography from '@mui/material/Typography';
+import PropTypes from 'prop-types';
+import { useEffect, useState } from "react";
+import { getTutorials } from "../../actions/tutorial.actions";
 import Navbar from '../../components/navbar/Navbar';
-import "./TutorialManagement.scss"
+import Sidebar from '../../components/sidebar/Sidebar';
+import CreateTutorial from './CreateTutorial';
+import "./TutorialManagement.scss";
+import Tutorials from './Tutorials';
+import UpdateTutorial from './UpdateTutorial';
+import { useDispatch, useSelector } from "react-redux";
 
 function TabPanel(props) {
     const { children, value, index, ...other } = props;
@@ -42,11 +47,24 @@ function a11yProps(index) {
 }
 
 export default function TutorialManagement() {
-    const [value, setValue] = React.useState(0);
+    const [value, setValue] = useState(0);
 
     const handleChange = (event, newValue) => {
         setValue(newValue);
     };
+
+    const dispatch = useDispatch();
+
+    useEffect(() => {
+        try {
+            dispatch(getTutorials())
+        } catch (error) {
+            console.log(error)
+        }
+    }, [])
+
+    const tutorials = useSelector((state) => state.tutorialReducers);
+
 
     return (
         <div className='tutorial-management'>
@@ -58,19 +76,19 @@ export default function TutorialManagement() {
                         <Box sx={{ width: '100%' }}>
                             <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
                                 <Tabs value={value} onChange={handleChange} aria-label="basic tabs example">
-                                    <Tab label="Item One" {...a11yProps(0)} />
-                                    <Tab label="Item Two" {...a11yProps(1)} />
-                                    <Tab label="Item Three" {...a11yProps(2)} />
+                                    <Tab label="Tutorials" {...a11yProps(0)} />
+                                    <Tab label="Create Tutorial" {...a11yProps(1)} />
+                                    <Tab label="Update Tutorial" {...a11yProps(2)} />
                                 </Tabs>
                             </Box>
                             <TabPanel value={value} index={0}>
-                                Item One
+                                <Tutorials tutorials={tutorials} />
                             </TabPanel>
                             <TabPanel value={value} index={1}>
-                                Item Two
+                                <CreateTutorial />
                             </TabPanel>
                             <TabPanel value={value} index={2}>
-                                Item Three
+                                <UpdateTutorial />
                             </TabPanel>
                         </Box>
                     </div>
