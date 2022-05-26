@@ -2,8 +2,6 @@
   "name": "react-ui-template",
   "version": "0.1.0",
   "private": true,
-  "proxy": "http://localhost:5000/",
-  "homepage": "http://localhost:3000/auth",
   "dependencies": {
     "@emotion/react": "^11.9.0",
     "@emotion/styled": "^11.8.1",
@@ -22,6 +20,7 @@
     "react-redux": "^8.0.1",
     "react-router-dom": "^6.3.0",
     "react-scripts": "5.0.1",
+    "react-select": "^5.3.2",
     "recharts": "^2.1.9",
     "redux": "^4.2.0",
     "redux-thunk": "^2.4.1",

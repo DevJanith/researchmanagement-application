@@ -4,22 +4,26 @@ import mongoose from 'mongoose';
 import cors from 'cors';
 
 //import routes
-import postRoutes from "./routes/posts.js";
-import StudentRoutes from "./routes/Student.js";
-import StudentContactRoutes from "./routes/StudentContactNo.js";
-import GroupRoutes from "./routes/Group.js";
-import GroupDetailsRoutes from "./routes/GroupDetails.js";
-import PresentationTempRoutes from "./routes/PresentationTemplate.js";
-import panelRoutes from "./routes/panel.js";
-import panelMemberRoutes from "./routes/panelMember.js";
-import staffRoutes from "./routes/staff.js";
-import staffContactNoRoutes from "./routes/staffContactNo.js";
-import staffEmailRoutes from "./routes/staffEmail.js";
-import adminRoutes from "./routes/admin.js";
-import markingSchemaRoutes from "./routes/markingSchema.js";
-import markingSchemaDescriptionRoutes from "./routes/markingSchemaDescription.js";
+import postRoutes from "./routes/posts.routes.js";
+import StudentRoutes from "./routes/student.routes.js";
+import StudentContactRoutes from "./routes/studentContactNo.routes.js";
+import GroupRoutes from "./routes/group.routes.js";
+import GroupDetailsRoutes from "./routes/groupDetails.routes.js";
+import PresentationTempRoutes from "./routes/presentationTemplate.routes.js";
+import panelRoutes from "./routes/panel.routes.js";
+import panelMemberRoutes from "./routes/panelMember.routes.js";
+import staffRoutes from "./routes/staff.routes.js";
+import staffContactNoRoutes from "./routes/staffContactNo.routes.js";
+import staffEmailRoutes from "./routes/staffEmail.routes.js";
+import adminRoutes from "./routes/admin.routes.js";
+import markingSchemaRoutes from "./routes/markingSchema.routes.js";
+import markingSchemaDescriptionRoutes from "./routes/markingSchemaDescription.routes.js";
 import userRoutes from "./routes/user.routes.js"
 import tutorialRoutes from "./routes/tutorial.routes.js"
+
+import dotenv from "dotenv";
+
+dotenv.config()
 
 const app = express();
 
@@ -45,7 +49,7 @@ app.use('/user', userRoutes);
 
 app.use('/tutorial', tutorialRoutes);
 
-const CONNECTION_URL = "mongodb+srv://user:YEsowdUiBU9QnAEy@researchmanagement-appl.vzhn4.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
+const CONNECTION_URL = `mongodb+srv://${process.env.DB_USERNAME}:${process.env.DB_PASSWORD}@researchmanagement-appl.vzhn4.mongodb.net/myFirstDatabase?retryWrites=true&w=majority`;
 const PORT = process.env.PORT || 5000;
 
 mongoose.connect(CONNECTION_URL, { useNewUrlParser: true, useUnifiedTopology: true })
