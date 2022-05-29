@@ -88,7 +88,10 @@ const Sidebar = () => {
             <li><SchemaIcon className="icon" style={{marginLeft: '30px'}}/><span>Marking Scheme</span></li>
           </Link>
 
+          <Link to={"/research-document"} style={{ textDecoration: "none" }}>
             <li><DocumentScannerIcon className="icon" style={{marginLeft: '30px'}}/><span>Research Documents</span></li>
+          </Link>
+            
 
 
           {/* <Link to={"/login"} style={{ textDecoration: "none" }}> */}
