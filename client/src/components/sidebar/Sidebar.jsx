@@ -16,6 +16,7 @@ import { DarkModeContext } from "../../context/darkModeContext";
 import "./sidebar.scss";
 import { useDispatch } from "react-redux";
 import BookmarksSharpIcon from "@mui/icons-material/BookmarksSharp";
+import SupervisorAccountIcon from '@mui/icons-material/SupervisorAccount';
 
 const Sidebar = () => {
   const { dispatch } = useContext(DarkModeContext);
@@ -67,6 +68,13 @@ const Sidebar = () => {
             <li>
               <BookmarksSharpIcon className="icon" />
               <span>Tutorial Management</span>
+            </li>
+          </Link>
+          <p className="title">Staff Management</p>
+          <Link to={"/staff-management"} style={{ textDecoration: "none" }}>
+            <li>
+              <SupervisorAccountIcon className="icon" />
+              <span>Staff Management</span>
             </li>
           </Link>
           {/* <p className="title">LISTS</p>
