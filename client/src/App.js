@@ -16,6 +16,7 @@ import UnderContraction from "./pages/underContraction/UnderContraction";
 import TutorialManagement from "./pages/TutorialManagement/TutorialManagement";
 import StaffManagement from "./pages/StaffManagement/StaffManagement";
 import ResearchTopics from "./pages/StaffManagement/ResearchTopics";
+import MarkingScheme from "./pages/StaffManagement/MarkingScheme";
 import "./style/dark.scss";
 
 function App() {
@@ -43,6 +44,9 @@ function App() {
             </Route>
             <Route path="research-topics">
               <Route index element={<ResearchTopics />} />
+            </Route>
+            <Route path="marking-scheme">
+              <Route index element={<MarkingScheme />} />
             </Route>
 
 

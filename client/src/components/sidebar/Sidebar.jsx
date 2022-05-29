@@ -84,7 +84,10 @@ const Sidebar = () => {
             <li><TopicIcon className="icon" style={{marginLeft: '30px'}}/><span>Research Topics</span></li>
           </Link>
 
+          <Link to={"/marking-scheme"} style={{ textDecoration: "none" }}>
             <li><SchemaIcon className="icon" style={{marginLeft: '30px'}}/><span>Marking Scheme</span></li>
+          </Link>
+
             <li><DocumentScannerIcon className="icon" style={{marginLeft: '30px'}}/><span>Research Documents</span></li>
 
 
