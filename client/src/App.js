@@ -14,11 +14,6 @@ import Single from "./pages/single/Single";
 import StudentManagement from "./pages/StudentManagement/StudentManagement";
 import UnderContraction from "./pages/underContraction/UnderContraction";
 import TutorialManagement from "./pages/TutorialManagement/TutorialManagement";
-import StaffManagement from "./pages/StaffManagement/StaffManagement";
-import ResearchTopics from "./pages/StaffManagement/ResearchTopics";
-import MarkingScheme from "./pages/StaffManagement/MarkingScheme";
-import ResearchDocuments from "./pages/StaffManagement/ResearchDocuments";
-
 import "./style/dark.scss";
 
 function App() {
@@ -33,28 +28,12 @@ function App() {
             <Route path="auth" element={<Auth />} />
             <Route path="login" element={<Login />} />
             <Route path="registration" element={<Registration />} />
-
-
             <Route path="student-management" >
               <Route index element={<StudentManagement />} />
             </Route>
             <Route path="tutorial-management">
               <Route index element={<TutorialManagement />} />
             </Route>
-            <Route path="staff-management">
-              <Route index element={<StaffManagement />} />
-            </Route>
-            <Route path="research-topics">
-              <Route index element={<ResearchTopics />} />
-            </Route>
-            <Route path="marking-scheme">
-              <Route index element={<MarkingScheme />} />
-            </Route>
-            <Route path="research-document">
-              <Route index element={<ResearchDocuments />} />
-            </Route>
-
-
             <Route path="users" >
               <Route index element={<List />} />
               <Route path=":userId" element={<Single />} />
