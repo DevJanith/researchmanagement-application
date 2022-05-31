@@ -1,15 +1,7 @@
-import AccountCircleOutlinedIcon from "@mui/icons-material/AccountCircleOutlined";
+
 import DashboardIcon from "@mui/icons-material/Dashboard";
 import ExitToAppIcon from "@mui/icons-material/ExitToApp";
-import LocalShippingOutlinedIcon from "@mui/icons-material/LocalShippingOutlined";
-import NotificationsNoneIcon from "@mui/icons-material/NotificationsNone";
-import PaymentIcon from "@mui/icons-material/Payment";
 import PersonOutlineOutlinedIcon from "@mui/icons-material/PersonOutlineOutlined";
-import PsychologyOutlinedIcon from "@mui/icons-material/PsychologyOutlined";
-import QueryStatsIcon from "@mui/icons-material/QueryStats";
-import SettingsIcon from "@mui/icons-material/Settings";
-import SettingsSystemDaydreamIcon from "@mui/icons-material/SettingsSystemDaydream";
-import StoreIcon from "@mui/icons-material/Store";
 import { useContext, useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { DarkModeContext } from "../../context/darkModeContext";
@@ -91,8 +83,6 @@ const Sidebar = () => {
           <Link to={"/research-document"} style={{ textDecoration: "none" }}>
             <li><DocumentScannerIcon className="icon" style={{marginLeft: '30px'}}/><span>Research Documents</span></li>
           </Link>
-
-        
 
 
 

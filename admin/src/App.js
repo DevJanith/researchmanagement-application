@@ -17,6 +17,7 @@ import ResearchTopics from "./pages/StaffManagement/ResearchTopics";
 import MarkingScheme from "./pages/StaffManagement/MarkingScheme";
 import ResearchDocuments from "./pages/StaffManagement/ResearchDocuments";
 import UnderContraction from "./pages/underContraction/UnderContraction";
+
 import "./style/dark.scss";
 
 function App() {

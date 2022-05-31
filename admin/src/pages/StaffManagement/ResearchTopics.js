@@ -8,6 +8,8 @@ import Navbar from "../../components/navbar/Navbar";
 import Sidebar from "../../components/sidebar/Sidebar";
 import { DataGrid } from '@mui/x-data-grid';
 import "./ResearchTopics.scss"
+import RegistrationForm from '../../components/pop-up';
+import CustomizedDialogs from '../../components/pop-up/dialog';
 
 function TabPanel(props) {
     const { children, value, index, ...other } = props;
@@ -109,7 +111,7 @@ function DataTable() {
                         <Box sx={{ width: '100%' }}>
                             <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
                                 <Tabs value={value} onChange={handleChange} aria-label="basic tabs example">
-                                    <Tab label="Item One" {...a11yProps(0)} />
+                                    <Tab label="Research Topics" {...a11yProps(0)} />
                                     <Tab label="Item Two" {...a11yProps(1)} />
                                     <Tab label="Item Three" {...a11yProps(2)} />
                                 </Tabs>
@@ -118,13 +120,21 @@ function DataTable() {
 
                                 <Typography variant="h4" sx={{ mb: 4}}>
                                     Research Topics
+                                    <span style={{ float: 'right', }}>
+                                        <CustomizedDialogs>
+                                            <RegistrationForm />
+                                        </CustomizedDialogs>
+                                    </span>
                                 </Typography>
+
+                                <br />
 
                                 {DataTable()}
                                 
                             </TabPanel>
                             <TabPanel value={value} index={1}>
-                                Item Two
+                            
+ 
                             </TabPanel>
                             <TabPanel value={value} index={2}>
                                 Item Three
