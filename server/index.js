@@ -20,6 +20,8 @@ import markingSchemaRoutes from "./routes/markingSchema.js";
 import markingSchemaDescriptionRoutes from "./routes/markingSchemaDescription.js";
 import userRoutes from "./routes/user.routes.js"
 import tutorialRoutes from "./routes/tutorial.routes.js"
+import topicRoutes from "./routes/researchTopic.js";
+
 
 const app = express();
 
@@ -42,7 +44,7 @@ app.use('/admin', adminRoutes);
 app.use('/markingSchema', markingSchemaRoutes);
 app.use('/markingSchemaDescription', markingSchemaDescriptionRoutes);
 app.use('/user', userRoutes);
-
+app.use('/topic', topicRoutes);
 app.use('/tutorial', tutorialRoutes);
 
 const CONNECTION_URL = "mongodb+srv://user:YEsowdUiBU9QnAEy@researchmanagement-appl.vzhn4.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
