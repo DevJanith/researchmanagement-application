@@ -6,7 +6,7 @@ import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 import Navbar from "../../components/navbar/Navbar";
 import Sidebar from "../../components/sidebar/Sidebar";
-import "./AdminManagement.scss"
+import "./AlocatePanel.scss"
 
 function TabPanel(props) {
     const { children, value, index, ...other } = props;
@@ -41,7 +41,7 @@ function a11yProps(index) {
     };
 }
 
-export default function AdminManagement() {
+export default function AlocatePanel() {
     const [value, setValue] = React.useState(0);
 
     const handleChange = (event, newValue) => {
@@ -49,18 +49,19 @@ export default function AdminManagement() {
     };
 
     return (
-        <div className="admin-management">
+        <div className="alocate-panel">
             <Sidebar />
-            <div className="admin-management-container">
+            <div className="alocate-panel-container">
                 <Navbar />
-                <div className='admin-management-body'>
-                    <div className='admin-management-tabs'>
+                <div className='alocate-panel-body'>
+                    <div className='alocate-panel-tabs'>
                         <Box sx={{ width: '100%' }}>
                             <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
                                 <Tabs value={value} onChange={handleChange} aria-label="basic tabs example">
-                                    <Tab label="Item One" {...a11yProps(0)} />
-                                    <Tab label="Item Two" {...a11yProps(1)} />
+                                    <Tab label="Create Roles" {...a11yProps(0)} />
+                                    <Tab label="View Roles" {...a11yProps(1)} />
                                     <Tab label="Item Three" {...a11yProps(2)} />
+                                
                                 </Tabs>
                             </Box>
                             <TabPanel value={value} index={0}>

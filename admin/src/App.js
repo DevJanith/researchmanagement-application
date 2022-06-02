@@ -4,7 +4,7 @@ import {
 } from "react-router-dom";
 import { DarkModeContext } from "./context/darkModeContext";
 import { userInput } from "./formSource";
-import AdminManagement from "./pages/AdminManagement/AdminManagement";
+import UserReservation from "./pages/AdminManagement/UserReservation";
 import Auth from "./pages/auth/Auth";
 import Home from "./pages/home/Home";
 import List from "./pages/list/list";
@@ -15,7 +15,8 @@ import Single from "./pages/single/Single";
 import StaffManagement from "./pages/StaffManagement/StaffManagement";
 import UnderContraction from "./pages/underContraction/UnderContraction";
 import "./style/dark.scss";
-
+import AlocatePanel from "./pages/AdminManagement/AllocatePanel";
+import Materials from "./pages/AdminManagement/Materials";
 function App() {
 
   const { darkMode } = useContext(DarkModeContext);
@@ -28,11 +29,17 @@ function App() {
             <Route path="auth" element={<Auth />} />
             <Route path="login" element={<Login />} />
             <Route path="registration" element={<Registration />} />
-            <Route path="admin-management" >
-              <Route index element={<AdminManagement />} />
+            <Route path="user-reservation" >
+              <Route index element={<UserReservation />} />
             </Route>
-            <Route path="staff-management" >
-              <Route index element={<StaffManagement />} />
+            <Route path="alocate-panel" >
+              <Route index element={<AlocatePanel />} />
+            </Route>
+            <Route path="alocate-panel" >
+              <Route index element={<AlocatePanel />} />
+            </Route>
+            <Route path="materials" >
+              <Route index element={<Materials />} />
             </Route>
             <Route path="users" >
               <Route index element={<List />} />

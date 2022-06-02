@@ -55,10 +55,22 @@ const Sidebar = () => {
             </li>
           </Link>
           <p className="title">Admin Management</p>
-          <Link to={"/admin-management"} style={{ textDecoration: "none" }}>
+          <Link to={"/user-reservation"} style={{ textDecoration: "none" }}>
             <li>
               <PersonOutlineOutlinedIcon className="icon" />
-              <span>Admin Management</span>
+              <span>User Reservation</span>
+            </li>
+          </Link>
+          <Link to={"/alocate-panel"} style={{ textDecoration: "none" }}>
+            <li>
+              <PersonOutlineOutlinedIcon className="icon" />
+              <span>Alocate Panels</span>
+            </li>
+          </Link>
+          <Link to={"/materials"} style={{ textDecoration: "none" }}>
+            <li>
+              <PersonOutlineOutlinedIcon className="icon" />
+              <span>Materials</span>
             </li>
           </Link>
           <p className="title">Staff Management</p>
