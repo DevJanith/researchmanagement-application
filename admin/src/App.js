@@ -4,7 +4,7 @@ import {
 } from "react-router-dom";
 import { DarkModeContext } from "./context/darkModeContext";
 import { userInput } from "./formSource";
-import UserReservation from "./pages/AdminManagement/UserReservation";
+import UserReservation from "./pages/AdminManagement/UserReservation/UserReservation";
 import Auth from "./pages/auth/Auth";
 import Home from "./pages/home/Home";
 import List from "./pages/list/list";
@@ -15,8 +15,8 @@ import Single from "./pages/single/Single";
 import StaffManagement from "./pages/StaffManagement/StaffManagement";
 import UnderContraction from "./pages/underContraction/UnderContraction";
 import "./style/dark.scss";
-import AlocatePanel from "./pages/AdminManagement/AllocatePanel";
-import Materials from "./pages/AdminManagement/Materials";
+import AlocatePanel from "./pages/AdminManagement/AllocatePanel/AllocatePanel";
+import Materials from "./pages/AdminManagement/Materials/Materials";
 function App() {
 
   const { darkMode } = useContext(DarkModeContext);

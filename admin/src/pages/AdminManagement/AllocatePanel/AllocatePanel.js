@@ -4,9 +4,9 @@ import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
-import Navbar from "../../components/navbar/Navbar";
-import Sidebar from "../../components/sidebar/Sidebar";
-import "./Materials.scss"
+import Navbar from "../../../components/navbar/Navbar";
+import Sidebar from "../../../components/sidebar/Sidebar";
+import "./AllocatePanel.scss"
 
 function TabPanel(props) {
     const { children, value, index, ...other } = props;
@@ -41,7 +41,7 @@ function a11yProps(index) {
     };
 }
 
-export default function Materials() {
+export default function AlocatePanel() {
     const [value, setValue] = React.useState(0);
 
     const handleChange = (event, newValue) => {
@@ -49,18 +49,18 @@ export default function Materials() {
     };
 
     return (
-        <div className="materials">
+        <div className="allocate-panel">
             <Sidebar />
-            <div className="materials-container">
+            <div className="allocate-panel-container">
                 <Navbar />
-                <div className='materials-body'>
-                    <div className='materials-tabs'>
+                <div className='allocate-panel-body'>
+                    <div className='allocate-panel-tabs'>
                         <Box sx={{ width: '100%' }}>
                             <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
                                 <Tabs value={value} onChange={handleChange} aria-label="basic tabs example">
-                                    <Tab label="Create Roles" {...a11yProps(0)} />
-                                    <Tab label="View Roles" {...a11yProps(1)} />
-                                    <Tab label="Item Three" {...a11yProps(2)} />
+                                    <Tab label="View Panels" {...a11yProps(0)} />
+                                    <Tab label="Create Panels" {...a11yProps(1)} />
+                                    <Tab label="Update Panels" {...a11yProps(2)} />
                                 
                                 </Tabs>
                             </Box>

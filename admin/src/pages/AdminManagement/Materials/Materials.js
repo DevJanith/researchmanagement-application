@@ -4,9 +4,9 @@ import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
-import Navbar from "../../components/navbar/Navbar";
-import Sidebar from "../../components/sidebar/Sidebar";
-import "./UserReservation.scss"
+import Navbar from "../../../components/navbar/Navbar";
+import Sidebar from "../../../components/sidebar/Sidebar";
+import "./Materials.scss"
 
 function TabPanel(props) {
     const { children, value, index, ...other } = props;
@@ -41,7 +41,7 @@ function a11yProps(index) {
     };
 }
 
-export default function AdminManagement() {
+export default function Materials() {
     const [value, setValue] = React.useState(0);
 
     const handleChange = (event, newValue) => {
@@ -49,19 +49,19 @@ export default function AdminManagement() {
     };
 
     return (
-        <div className="user-reservation">
+        <div className="materials">
             <Sidebar />
-            <div className="user-reservation-container">
+            <div className="materials-container">
                 <Navbar />
-                <div className='user-reservation-body'>
-                    <div className='user-reservation-tabs'>
+                <div className='materials-body'>
+                    <div className='materials-tabs'>
                         <Box sx={{ width: '100%' }}>
                             <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
                                 <Tabs value={value} onChange={handleChange} aria-label="basic tabs example">
-                                    <Tab label="Create Roles" {...a11yProps(0)} />
-                                    <Tab label="View Roles" {...a11yProps(1)} />
-                                    <Tab label="Item Three" {...a11yProps(2)} />
-                                    <Tab label="Item Three" {...a11yProps(3)} />
+                                    <Tab label="Documents" {...a11yProps(0)} />
+                                    <Tab label="Marking schemes" {...a11yProps(1)} />
+                                    <Tab label="Presentation templates" {...a11yProps(2)} />
+                                
                                 </Tabs>
                             </Box>
                             <TabPanel value={value} index={0}>
