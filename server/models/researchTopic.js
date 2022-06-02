@@ -26,8 +26,14 @@ const TopicSchema = mongoose.Schema({
     research_topic: String,
     research_field: String,
     description: String,
-    Created_Date: Date,
-    Updated_Date: Date,
+    createdAt: {
+        type: Date,
+        default: new Date()
+    },
+    updatedAt: {
+        type: Date,
+        default: new Date()
+    }
 
 });
 

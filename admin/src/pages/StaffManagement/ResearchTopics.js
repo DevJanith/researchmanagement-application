@@ -87,6 +87,21 @@ const columns = [
   ];
 //Test Data
 
+// const TABLE_HEAD = [
+
+//     { id: 'groupid', label: 'Group NO', alignRight: false },
+//     { id: 'leaderid', label: 'Leader IT_NO', alignRight: false },
+//     { id: 'leader_email', label: 'Leader Email', alignRight: false },
+//     { id: 'member1', label: 'Member #1 IT_NO', alignRight: false },
+//     { id: 'member2', label: 'Member #2 IT_NO', alignRight: false },
+//     { id: 'member3', label: 'Member #3 IT_NO', alignRight: false },
+//     { id: 'membercount', label: 'Member Count', alignRight: false },
+//     { id: 'research_topic', label: 'Research Topic', alignRight: false },
+//     { id: 'research_field', label: 'Research Field', alignRight: false },
+//     { id: 'description', label: 'Description', alignRight: false },
+// ];
+
+
 function DataTable() {
     return (
         <div style={{ height: 422.5, width: '100%', backgroundColor: '#fffafa', border: '1px solid #000'}}>
