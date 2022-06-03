@@ -2,6 +2,7 @@
   "name": "react-ui-template",
   "version": "0.1.0",
   "private": true,
+  "homepage": "http://localhost:3000/auth",
   "dependencies": {
     "@emotion/react": "^11.9.0",
     "@emotion/styled": "^11.8.1",
