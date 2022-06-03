@@ -21,6 +21,7 @@ import markingSchemaDescriptionRoutes from "./routes/markingSchemaDescription.ro
 import userRoutes from "./routes/user.routes.js"
 import tutorialRoutes from "./routes/tutorial.routes.js"
 import topicRoutes from "./routes/researchTopic.routes.js";
+import ResearchRoutes from "./routes/research.routes.js"
 
 
 import dotenv from "dotenv";
@@ -50,6 +51,8 @@ app.use('/markingSchemaDescription', markingSchemaDescriptionRoutes);
 app.use('/user', userRoutes);
 app.use('/topic', topicRoutes);
 app.use('/tutorial', tutorialRoutes);
+app.use('/research', ResearchRoutes);
+
 
 const CONNECTION_URL = `mongodb+srv://${process.env.DB_USERNAME}:${process.env.DB_PASSWORD}@researchmanagement-appl.vzhn4.mongodb.net/myFirstDatabase?retryWrites=true&w=majority`;
 const PORT = process.env.PORT || 5000;

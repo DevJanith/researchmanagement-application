@@ -21,12 +21,12 @@ const userSchema = mongoose.Schema({
     userDetails: {
         userQNumber: {
             type: String,
-            required: true, 
+            required: true,
             unique: true
         },
         userEmail: {
             type: String,
-            required: true, 
+            required: true,
         },
         userName: {
             type: String,
@@ -55,6 +55,18 @@ const userSchema = mongoose.Schema({
             required: true
         },
     },
+    states: {
+        type: String,
+        default: "1"
+    },
+    createdAt: {
+        type: Date,
+        default: new Date()
+    },
+    updatedAt: {
+        type: Date,
+        default: new Date()
+    }
     // id: {
     //     type: String
     // }
