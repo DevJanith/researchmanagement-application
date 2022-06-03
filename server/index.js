@@ -20,7 +20,7 @@ import markingSchemaRoutes from "./routes/markingSchema.routes.js";
 import markingSchemaDescriptionRoutes from "./routes/markingSchemaDescription.routes.js";
 import userRoutes from "./routes/user.routes.js"
 import tutorialRoutes from "./routes/tutorial.routes.js"
-import topicRoutes from "./routes/researchTopic.js";
+import topicRoutes from "./routes/researchTopic.routes.js";
 
 
 import dotenv from "dotenv";

@@ -26,6 +26,9 @@ const TopicSchema = mongoose.Schema({
     research_topic: String,
     research_field: String,
     description: String,
+    status: String,
+    supervisorName: String,
+    co_supervisorName: String,
     
     createdAt: {
         type: Date,
