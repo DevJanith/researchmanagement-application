@@ -26,7 +26,10 @@ const TopicSchema = mongoose.Schema({
     research_topic: String,
     research_field: String,
     description: String,
-    status: String,
+    status: {
+        type: String,
+        default: "pending"
+    },
     supervisorName: String,
     co_supervisorName: String,
     

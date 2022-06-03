@@ -20,12 +20,6 @@ import { UserListHead, UserListToolbar, UserMoreMenu } from './sections/@dashboa
 import USERLIST from './_mock/user';
 
 const TABLE_HEAD = [
-    // { id: 'name', label: 'Name', alignRight: false },
-    // { id: 'company', label: 'Company', alignRight: false },
-    // { id: 'role', label: 'Role', alignRight: false },
-    // { id: 'isVerified', label: 'Verified', alignRight: false },
-    // { id: 'status', label: 'Status', alignRight: false },
-    // { id: '' },
 
     { id: 'status', label: 'Status', align: 'center' },
     { id: 'groupid', label: 'Group NO', alignRight: false },
@@ -168,7 +162,7 @@ export default function CompositeTable(props) {
                 <UserListToolbar numSelected={selected.length} filterName={filterName} onFilterName={handleFilterByName} />
 
                 <Scrollbar>
-                    <TableContainer sx={{ Width: 500 }}>
+                    <TableContainer sx={{ minWidth: 200 }}>
                         <Table>
                             <UserListHead
                                 order={order}
