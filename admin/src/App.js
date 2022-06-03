@@ -20,6 +20,7 @@ import ResearchDocuments from "./pages/StaffManagement/ResearchDocuments";
 import UnderContraction from "./pages/underContraction/UnderContraction";
 
 import "./style/dark.scss";
+import NotFound from "./pages/notFound/NotFound";
 
 function App() {
 
@@ -31,10 +32,11 @@ function App() {
           <Route path="/" >
             <Route index element={<Home />} />
             <Route path="auth" element={<Auth />} />
-            <Route path="login" element={<Login />} />
-            <Route path="registration" element={<Registration />} />
+            <Route path="/under-construction*" element={<UnderContraction />} />
+            <Route path="/404*" element={<NotFound />} />
 
-
+            {/* <Route path="login" element={<Login />} />
+            <Route path="registration" element={<Registration />} />  */}
             <Route path="admin-management" >
               <Route index element={<AdminManagement />} />
             </Route>
