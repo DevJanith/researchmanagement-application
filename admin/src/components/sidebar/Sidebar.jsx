@@ -1,20 +1,17 @@
-import AccountCircleOutlinedIcon from "@mui/icons-material/AccountCircleOutlined";
+
 import DashboardIcon from "@mui/icons-material/Dashboard";
 import ExitToAppIcon from "@mui/icons-material/ExitToApp";
-import LocalShippingOutlinedIcon from "@mui/icons-material/LocalShippingOutlined";
-import NotificationsNoneIcon from "@mui/icons-material/NotificationsNone";
-import PaymentIcon from "@mui/icons-material/Payment";
 import PersonOutlineOutlinedIcon from "@mui/icons-material/PersonOutlineOutlined";
-import PsychologyOutlinedIcon from "@mui/icons-material/PsychologyOutlined";
-import QueryStatsIcon from "@mui/icons-material/QueryStats";
-import SettingsIcon from "@mui/icons-material/Settings";
-import SettingsSystemDaydreamIcon from "@mui/icons-material/SettingsSystemDaydream";
-import StoreIcon from "@mui/icons-material/Store";
 import { useContext, useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { DarkModeContext } from "../../context/darkModeContext";
 import "./sidebar.scss";
 import { useDispatch } from "react-redux";
+import SupervisorAccountIcon from '@mui/icons-material/SupervisorAccount';
+import TopicIcon from '@mui/icons-material/Topic';
+import SchemaIcon from '@mui/icons-material/Schema';
+import DocumentScannerIcon from '@mui/icons-material/DocumentScanner';
+import StarIcon from '@mui/icons-material/Star';
 
 const Sidebar = () => {
   const { dispatch } = useContext(DarkModeContext);
@@ -47,6 +44,8 @@ const Sidebar = () => {
       <hr />
       <div className="center">
         <ul>
+
+
           <p className="title">MAIN</p>
           <Link to={"/"} style={{ textDecoration: "none" }}>
             <li>
@@ -54,6 +53,8 @@ const Sidebar = () => {
               <span>Dashboard</span>
             </li>
           </Link>
+
+
           <p className="title">Admin Management</p>
           <Link to={"/user-reservation"} style={{ textDecoration: "none" }}>
             <li>
@@ -73,78 +74,30 @@ const Sidebar = () => {
               <span>Materials</span>
             </li>
           </Link>
+
+
+          
           <p className="title">Staff Management</p>
           <Link to={"/staff-management"} style={{ textDecoration: "none" }}>
-            <li>
-              <PersonOutlineOutlinedIcon className="icon" />
-              <span>Staff Management</span>
-            </li>
+            <li><StarIcon className="icon" /><span style={{fontSize: '18px', color: '#00008B'}}>Supervisor <br/>Co-Supervisor</span></li>
+          </Link>
+          
+            <li><DashboardIcon className="icon" style={{marginLeft: '30px'}}/><span>Dashboard</span></li>
+
+          <Link to={"/research-topics"} style={{ textDecoration: "none" }}>
+            <li><TopicIcon className="icon" style={{marginLeft: '30px'}}/><span>Research Topics</span></li>
           </Link>
 
-          {/* <p className="title">LISTS</p>
-          <Link to={"/users"} style={{ textDecoration: "none" }}>
-            <li>
-              <PersonOutlineOutlinedIcon className="icon" />
-              <span>Users</span>
-            </li>
+          <Link to={"/marking-scheme"} style={{ textDecoration: "none" }}>
+            <li><SchemaIcon className="icon" style={{marginLeft: '30px'}}/><span>Marking Scheme</span></li>
           </Link>
-          <Link to={"/products"} style={{ textDecoration: "none" }}>
-            <li>
-              <StoreIcon className="icon" />
-              <span>Products</span>
-            </li>
+
+          <Link to={"/research-document"} style={{ textDecoration: "none" }}>
+            <li><DocumentScannerIcon className="icon" style={{marginLeft: '30px'}}/><span>Research Documents</span></li>
           </Link>
-          <Link to={"/orders"} style={{ textDecoration: "none" }}>
-            <li>
-              <PaymentIcon className="icon" />
-              <span>Orders</span>
-            </li>
-          </Link>
-          <Link to={"/delivery"} style={{ textDecoration: "none" }}>
-            <li>
-              <LocalShippingOutlinedIcon className="icon" />
-              <span>Delivery</span>
-            </li>
-          </Link>
-          <p className="title">USEFUL</p>
-          <Link to={"/under-construction"} style={{ textDecoration: "none" }}>
-            <li>
-              <QueryStatsIcon className="icon" />
-              <span>Stats</span>
-            </li>
-          </Link>
-          <Link to={"/under-construction"} style={{ textDecoration: "none" }}>
-            <li>
-              <NotificationsNoneIcon className="icon" />
-              <span>Notifications</span>
-            </li>
-          </Link>
-          <p className="title">SERVICE</p>
-          <Link to={"/under-construction"} style={{ textDecoration: "none" }}>
-            <li>
-              <SettingsSystemDaydreamIcon className="icon" />
-              <span>System Health</span>
-            </li>
-          </Link>
-          <Link to={"/under-construction"} style={{ textDecoration: "none" }}>
-            <li>
-              <PsychologyOutlinedIcon className="icon" />
-              <span>Logs</span>
-            </li>
-          </Link>
-          <Link to={"/under-construction"} style={{ textDecoration: "none" }}>
-            <li>
-              <SettingsIcon className="icon" />
-              <span>Settings</span>
-            </li>
-          </Link>
-          <p className="title">USER</p>
-          <Link to={"/users/:id"} style={{ textDecoration: "none" }}>
-            <li>
-              <AccountCircleOutlinedIcon className="icon" />
-              <span>Profile</span>
-            </li>
-          </Link> */}
+
+
+
           {/* <Link to={"/login"} style={{ textDecoration: "none" }}> */}
           <li onClick={logout} style={{ marginTop: "20%" }}>
             <ExitToAppIcon className="icon" />

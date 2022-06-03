@@ -1,19 +1,15 @@
 import { useContext } from "react";
 import {
-  BrowserRouter, Route, Routes
+  BrowserRouter, Navigate, Route, Routes
 } from "react-router-dom";
 import { DarkModeContext } from "./context/darkModeContext";
-import { userInput } from "./formSource";
 import Auth from "./pages/auth/Auth";
+import CompositeTable from "./pages/CompositeTable/CompositeTable";
 import Home from "./pages/home/Home";
-import List from "./pages/list/list";
-import Login from "./pages/login/Login";
-import New from "./pages/new/New";
-import Registration from "./pages/registration/Registration";
-import Single from "./pages/single/Single";
-import StudentManagement from "./pages/StudentManagement/StudentManagement";
+import NotFound from "./pages/notFound/NotFound";
+import GroupManagement from "./pages/StudentManagement/GroupManagement/GroupManagement";
 import UnderContraction from "./pages/underContraction/UnderContraction";
-import TutorialManagement from "./pages/TutorialManagement/TutorialManagement";
+import PrivateRoutes from "./PrivateRoutes";
 import "./style/dark.scss";
 
 function App() {
@@ -24,14 +20,19 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/" >
-            <Route index element={<Home />} />
             <Route path="auth" element={<Auth />} />
-            <Route path="login" element={<Login />} />
-            <Route path="registration" element={<Registration />} />
+            <Route path="/under-construction*" element={<UnderContraction />} />
+            <Route path="/404*" element={<NotFound />} />
+
+            {/* <Route path="app" element={<Home />} /> */}
+            {/* <Route path="login" element={<Login />} />
+            <Route path="registration" element={<Registration />} /> */}
             <Route path="student-management" >
-              <Route index element={<StudentManagement />} />
+              <Route index element={<PrivateRoutes component={Home} />} />
+              <Route path="group" element={<PrivateRoutes component={GroupManagement} />} />
+              <Route path="table" element={<PrivateRoutes component={CompositeTable} />} />
             </Route>
-            <Route path="tutorial-management">
+            {/* <Route path="tutorial-management">
               <Route index element={<TutorialManagement />} />
             </Route>
             <Route path="users" >
@@ -53,11 +54,9 @@ function App() {
               <Route index element={<List />} />
               <Route path=":deliveryId" element={<Single />} />
               <Route path="new" element={<New />} />
-            </Route>
+            </Route> */}
           </Route>
-          <Route path="/under-construction*" >
-            <Route index element={<UnderContraction />} />
-          </Route>
+          <Route path='*' element={<Navigate to='/404' replace />} />
         </Routes>
       </BrowserRouter>
     </div>

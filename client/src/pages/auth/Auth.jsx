@@ -25,6 +25,9 @@ const Auth = (props) => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
+    console.log(formData);
+    formData.type = "student";
+
     if (isSignUp) {
       dispatch(signUp(formData, navigate));
     } else {
@@ -94,13 +97,43 @@ const Auth = (props) => {
                         label="First Name"
                         handleChange={handleChange}
                         autoFocus
-                        half
+                        quatre={6}
                       />
                       <CustomInput
                         name="lastName"
                         label="Last Name"
                         handleChange={handleChange}
-                        half
+                        quatre={6}
+                      />
+                      <CustomInput
+                        name="userQNumber"
+                        label="Unique Id Number"
+                        handleChange={handleChange}
+                        quatre={6}
+                      />
+                      <CustomInput
+                        name="userContactNumber"
+                        label="Contact Number"
+                        handleChange={handleChange}
+                        quatre={6}
+                      />
+                      <CustomInput
+                        name="addressNumber"
+                        label="No."
+                        handleChange={handleChange}
+                        quatre={4}
+                      />
+                      <CustomInput
+                        name="addressLine1"
+                        label="Line 1"
+                        handleChange={handleChange}
+                        quatre={4}
+                      />
+                      <CustomInput
+                        name="addressLine2"
+                        label="Line 2"
+                        handleChange={handleChange}
+                        quatre={4}
                       />
                     </>
                   )}
@@ -177,13 +210,13 @@ const Auth = (props) => {
                 {/* <div class="g-signin2" onSubmit={onSignIn}></div> */}
               </form>
             </div>
-            <div className="right">
+            {/* <div className="right">
               <img
-                src="https://www.kindpng.com/picc/m/755-7554518_login-icon-cartoon-hd-png-download.png"
+                src="https://cheqdin.com/wp-content/uploads/2020/06/Online-School-Registration-System.png"
                 alt=""
                 className="image"
               />
-            </div>
+            </div> */}
           </div>
           <div className="bottom"></div>
         </div>

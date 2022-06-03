@@ -6,6 +6,7 @@ import { DarkModeContext } from "./context/darkModeContext";
 import { userInput } from "./formSource";
 import UserReservation from "./pages/AdminManagement/UserReservation/UserReservation";
 import Auth from "./pages/auth/Auth";
+import CompositeTable from "./pages/CompositeTable/CompositeTable";
 import Home from "./pages/home/Home";
 import List from "./pages/list/list";
 import Login from "./pages/login/Login";
@@ -13,7 +14,11 @@ import New from "./pages/new/New";
 import Registration from "./pages/registration/Registration";
 import Single from "./pages/single/Single";
 import StaffManagement from "./pages/StaffManagement/StaffManagement";
+import ResearchTopics from "./pages/StaffManagement/ResearchTopicsManagement/ResearchTopics";
+import MarkingScheme from "./pages/StaffManagement/MarkingScheme";
+import ResearchDocuments from "./pages/StaffManagement/ResearchDocuments";
 import UnderContraction from "./pages/underContraction/UnderContraction";
+
 import "./style/dark.scss";
 import AlocatePanel from "./pages/AdminManagement/AllocatePanel/AllocatePanel";
 import Materials from "./pages/AdminManagement/Materials/Materials";
@@ -33,6 +38,22 @@ function App() {
             <Route path="auth" element={<Auth />} />
             <Route path="login" element={<Login />} />
             <Route path="registration" element={<Registration />} />
+            <Route path="admin-management" >
+              <Route index element={<AdminManagement />} />
+            </Route>
+            <Route path="staff-management">
+              <Route index element={<StaffManagement />} />
+              <Route path="table" element={<CompositeTable />} />
+            </Route>
+            <Route path="research-topics">
+              <Route index element={<ResearchTopics />} />
+            </Route>
+            <Route path="marking-scheme">
+              <Route index element={<MarkingScheme />} />
+            </Route>
+            <Route path="research-document">
+              <Route index element={<ResearchDocuments />} />
+            </Route>
             <Route path="user-reservation" >
               <Route index element={<UserReservation />} />
             </Route>

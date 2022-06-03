@@ -1,18 +1,10 @@
-import Navbar from "../../components/navbar/Navbar";
-import Sidebar from "../../components/sidebar/Sidebar";
 import "./underContraction.scss";
 
 const UnderContraction = () => {
-  return (
-    <div className="underConstruction">
-      <Sidebar />
-      <div className="underConstructionContainer">
-        <Navbar />
+  return ( 
         <div className="underConstruction">
           <h1 className="title">Under Construction</h1>
-        </div>
-      </div>
-    </div>
+        </div> 
   );
 };
 

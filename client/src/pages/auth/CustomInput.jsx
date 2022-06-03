@@ -5,7 +5,7 @@ import VisibilityOff from "@mui/icons-material/VisibilityOff";
 
 const CustomInput = (props) => {
   return (
-    <Grid item xs={12} sm={props.half ? 6 : 12}>
+    <Grid item xs={12} sm={props.quatre ? props.quatre : 12}>
       <TextField
         name={props.name}
         onChange={props.handleChange}
@@ -15,6 +15,7 @@ const CustomInput = (props) => {
         label={props.label}
         autoFocus={props.autoFocus}
         type={props.type}
+        InputLabelProps={{ shrink: true }}
         InputProps={
           props.name === "password"
             ? {

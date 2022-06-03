@@ -8,7 +8,7 @@ export const signIn = (formData, navigate) => async (dispatch) => {
 
         dispatch({ type: 'AUTH', data })
 
-        navigate('/')
+        navigate('/student-management')
     } catch (error) {
         console.log(error.message)
     }
@@ -21,7 +21,7 @@ export const signUp = (formData, navigate) => async (dispatch) => {
 
         dispatch({ type: 'AUTH', data })
 
-        navigate('/')
+        navigate('/student-management')
     } catch (error) {
         console.log(error.message)
     }

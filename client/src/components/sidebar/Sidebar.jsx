@@ -1,21 +1,14 @@
-import AccountCircleOutlinedIcon from "@mui/icons-material/AccountCircleOutlined";
+import BookmarksSharpIcon from "@mui/icons-material/BookmarksSharp";
 import DashboardIcon from "@mui/icons-material/Dashboard";
 import ExitToAppIcon from "@mui/icons-material/ExitToApp";
-import LocalShippingOutlinedIcon from "@mui/icons-material/LocalShippingOutlined";
-import NotificationsNoneIcon from "@mui/icons-material/NotificationsNone";
-import PaymentIcon from "@mui/icons-material/Payment";
-import PersonOutlineOutlinedIcon from "@mui/icons-material/PersonOutlineOutlined";
-import PsychologyOutlinedIcon from "@mui/icons-material/PsychologyOutlined";
-import QueryStatsIcon from "@mui/icons-material/QueryStats";
-import SettingsIcon from "@mui/icons-material/Settings";
-import SettingsSystemDaydreamIcon from "@mui/icons-material/SettingsSystemDaydream";
-import StoreIcon from "@mui/icons-material/Store";
-import { useContext, useState, useEffect } from "react";
+import GroupAddIcon from "@mui/icons-material/GroupAdd";
+import { Button } from "@mui/material";
+import { useContext, useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import { DarkModeContext } from "../../context/darkModeContext";
+import { getUser } from "../../pages/auth/Session";
 import "./sidebar.scss";
-import { useDispatch } from "react-redux";
-import BookmarksSharpIcon from "@mui/icons-material/BookmarksSharp";
 
 const Sidebar = () => {
   const { dispatch } = useContext(DarkModeContext);
@@ -26,7 +19,7 @@ const Sidebar = () => {
 
   useEffect(() => {
     try {
-      setUser(JSON.parse(localStorage.getItem("profile")));
+      setUser(getUser());
     } catch (error) {
       console.log(error);
     }
@@ -48,27 +41,36 @@ const Sidebar = () => {
       <hr />
       <div className="center">
         <ul>
-          <p className="title">MAIN</p>
+          {/* <p className="title">MAIN</p>
           <Link to={"/"} style={{ textDecoration: "none" }}>
             <li>
               <DashboardIcon className="icon" />
               <span>Dashboard</span>
             </li>
-          </Link>
+          </Link> */}
           <p className="title">Student Management</p>
           <Link to={"/student-management"} style={{ textDecoration: "none" }}>
             <li>
-              <PersonOutlineOutlinedIcon className="icon" />
-              <span>Student Management</span>
+              <DashboardIcon className="icon" />
+              <span>Dashboard</span>
             </li>
           </Link>
-          <p className="title">Tutorial Management</p>
+          <Link
+            to={"/student-management/group"}
+            style={{ textDecoration: "none" }}
+          >
+            <li>
+              <GroupAddIcon className="icon" />
+              <span>Group Management</span>
+            </li>
+          </Link>
+          {/* <p className="title">Tutorial Management</p>
           <Link to={"/tutorial-management"} style={{ textDecoration: "none" }}>
             <li>
               <BookmarksSharpIcon className="icon" />
               <span>Tutorial Management</span>
             </li>
-          </Link>
+          </Link> */}
           {/* <p className="title">LISTS</p>
           <Link to={"/users"} style={{ textDecoration: "none" }}>
             <li>
@@ -134,14 +136,17 @@ const Sidebar = () => {
             </li>
           </Link> */}
           {/* <Link to={"/login"} style={{ textDecoration: "none" }}> */}
-          <li onClick={logout} style={{ marginTop: "20%" }}>
+          {/* <li onClick={logout} style={{ marginTop: "80%" }}>
             <ExitToAppIcon className="icon" />
             <span>Logout</span>
-          </li>
+          </li> */}
           {/* </Link> */}
         </ul>
       </div>
       <div className="bottom">
+        <Button variant="outlined" color="error" onClick={logout}>
+          Log out
+        </Button>
         <div
           className="colorOption"
           onClick={() => dispatch({ type: "LIGHT" })}
@@ -150,11 +155,13 @@ const Sidebar = () => {
           className="colorOption"
           onClick={() => dispatch({ type: "DARK" })}
         ></div>
-      </div>
-      <div style={{ margin: "20px" }}>
-        <h5>
-          {user != null ? user?.result.name : "Currently No User Available"}
-        </h5>
+        {/* <div style={{ margin: "20px" }}>
+          <h5>
+            {user != null
+              ? user?.userDetails?.userName
+              : "Currently No User Available"}
+          </h5>
+        </div> */}
       </div>
     </div>
   );
