@@ -60,7 +60,7 @@ export default function AdminManagement() {
                                 <Tabs value={value} onChange={handleChange} aria-label="basic tabs example">
                                     <Tab label="View Roles" {...a11yProps(0)} />
                                     <Tab label="Create Roles" {...a11yProps(1)} />
-                                    <Tab label="Update Three" {...a11yProps(2)} />
+                                    <Tab label="Update Roles" {...a11yProps(2)} />
                                     
                                 </Tabs>
                             </Box>

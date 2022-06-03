@@ -7,6 +7,10 @@ import Box from '@mui/material/Box';
 import Navbar from "../../../components/navbar/Navbar";
 import Sidebar from "../../../components/sidebar/Sidebar";
 import "./Materials.scss"
+import Documents from './Documents';
+import MarkingSchemes from './MarkingSchemes';
+import PresentationTemplates from './PresentationTemplates';
+import { useSelector } from 'react-redux';
 
 function TabPanel(props) {
     const { children, value, index, ...other } = props;
@@ -48,6 +52,8 @@ export default function Materials() {
         setValue(newValue);
     };
 
+    const documents = useSelector((state) => state.documentsReducers);
+
     return (
         <div className="materials">
             <Sidebar />
@@ -61,17 +67,17 @@ export default function Materials() {
                                     <Tab label="Documents" {...a11yProps(0)} />
                                     <Tab label="Marking schemes" {...a11yProps(1)} />
                                     <Tab label="Presentation templates" {...a11yProps(2)} />
-                                
+
                                 </Tabs>
                             </Box>
                             <TabPanel value={value} index={0}>
-                                Item One
+                                {/* <Documents /> */}
                             </TabPanel>
                             <TabPanel value={value} index={1}>
-                                Item Two
+                                <MarkingSchemes />
                             </TabPanel>
                             <TabPanel value={value} index={2}>
-                                Item Three
+                                <PresentationTemplates />
                             </TabPanel>
                         </Box>
                     </div>
