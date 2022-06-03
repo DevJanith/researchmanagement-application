@@ -6,6 +6,7 @@ import { DarkModeContext } from "./context/darkModeContext";
 import { userInput } from "./formSource";
 import AdminManagement from "./pages/AdminManagement/AdminManagement";
 import Auth from "./pages/auth/Auth";
+import CompositeTable from "./pages/CompositeTable/CompositeTable";
 import Home from "./pages/home/Home";
 import List from "./pages/list/list";
 import Login from "./pages/login/Login";
@@ -33,6 +34,7 @@ function App() {
             </Route>
             <Route path="staff-management" >
               <Route index element={<StaffManagement />} />
+              <Route path="table" element={<CompositeTable />} />
             </Route>
             <Route path="users" >
               <Route index element={<List />} />
