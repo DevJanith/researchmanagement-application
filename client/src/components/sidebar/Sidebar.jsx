@@ -1,21 +1,12 @@
-import AccountCircleOutlinedIcon from "@mui/icons-material/AccountCircleOutlined";
+import BookmarksSharpIcon from "@mui/icons-material/BookmarksSharp";
 import DashboardIcon from "@mui/icons-material/Dashboard";
 import ExitToAppIcon from "@mui/icons-material/ExitToApp";
-import LocalShippingOutlinedIcon from "@mui/icons-material/LocalShippingOutlined";
-import NotificationsNoneIcon from "@mui/icons-material/NotificationsNone";
-import PaymentIcon from "@mui/icons-material/Payment";
-import PersonOutlineOutlinedIcon from "@mui/icons-material/PersonOutlineOutlined";
-import PsychologyOutlinedIcon from "@mui/icons-material/PsychologyOutlined";
-import QueryStatsIcon from "@mui/icons-material/QueryStats";
-import SettingsIcon from "@mui/icons-material/Settings";
-import SettingsSystemDaydreamIcon from "@mui/icons-material/SettingsSystemDaydream";
-import StoreIcon from "@mui/icons-material/Store";
-import { useContext, useState, useEffect } from "react";
+import GroupAddIcon from "@mui/icons-material/GroupAdd";
+import { useContext, useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import { DarkModeContext } from "../../context/darkModeContext";
 import "./sidebar.scss";
-import { useDispatch } from "react-redux";
-import BookmarksSharpIcon from "@mui/icons-material/BookmarksSharp";
 
 const Sidebar = () => {
   const { dispatch } = useContext(DarkModeContext);
@@ -58,8 +49,17 @@ const Sidebar = () => {
           <p className="title">Student Management</p>
           <Link to={"/student-management"} style={{ textDecoration: "none" }}>
             <li>
-              <PersonOutlineOutlinedIcon className="icon" />
-              <span>Student Management</span>
+              <DashboardIcon className="icon" />
+              <span>Dashboard</span>
+            </li>
+          </Link>
+          <Link
+            to={"/student-management/group"}
+            style={{ textDecoration: "none" }}
+          >
+            <li>
+              <GroupAddIcon className="icon" />
+              <span>Group Management</span>
             </li>
           </Link>
           <p className="title">Tutorial Management</p>
