@@ -6,7 +6,6 @@ import cors from 'cors';
 //import routes
 import postRoutes from "./routes/posts.routes.js";
 import GroupRoutes from "./routes/group.routes.js";
-import GroupDetailsRoutes from "./routes/groupDetails.routes.js";
 import PresentationTempRoutes from "./routes/presentationTemplate.routes.js";
 import panelRoutes from "./routes/panel.routes.js";
 import markingSchemaRoutes from "./routes/markingSchema.routes.js";
@@ -29,7 +28,6 @@ app.use(cors());
 
 app.use('/posts', postRoutes);
 app.use('/group', GroupRoutes);
-app.use('/groupDetails', GroupDetailsRoutes);
 app.use('/presentationTemp', PresentationTempRoutes);
 app.use('/panel', panelRoutes);
 app.use('/markingSchema', markingSchemaRoutes);
