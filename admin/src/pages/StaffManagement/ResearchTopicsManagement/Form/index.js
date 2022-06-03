@@ -1,4 +1,4 @@
-export { default as ItemCreateForm } from './createForm';
-export { default as ItemUpdateForm } from './updateForm'; 
+export { default as TopicCreateForm } from './TopicCreateForm';
+export { default as TopicUpdateForm } from './TopicUpdateForm'; 
 
 

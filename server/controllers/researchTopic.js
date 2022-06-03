@@ -54,14 +54,13 @@ export const createTopic = async (req, res) => {
 //update Topic
 export const updateTopic = async (req, res) => {
     const { id } = req.params;
-    const { groupid, leaderid, leader_email,member1,member2,member3,membercount,research_topic,research_field,description, Created_Date, Updated_Date} = req.body;
 
     try {
         if (!mongoose.Types.ObjectId.isValid(id)) {
             return res.status(404).send(`No Research Topic Available with id: ${id}`);
         }
 
-        const updatedTopic = { groupid, leaderid, leader_email,member1,member2,member3,membercount,research_topic,research_field,description, Created_Date, Updated_Date, _id: id };
+        const updatedTopic = { ...req.body, _id: id };
 
         await Topic.findByIdAndUpdate(id, updatedTopic, { new: true });
 

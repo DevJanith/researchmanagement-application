@@ -27,21 +27,21 @@ const TABLE_HEAD = [
     // { id: 'status', label: 'Status', alignRight: false },
     // { id: '' },
 
-    { id: 'status', label: 'Status', alignRight: false },
+    { id: 'status', label: 'Status', align: 'center' },
     { id: 'groupid', label: 'Group NO', alignRight: false },
-    { id: 'leaderid', label: 'Leader IT_NO', alignRight: false },
-    { id: 'leader_email', label: 'Leader Email', alignRight: false },
-    { id: 'member1', label: 'Member #1 IT_NO', alignRight: false },
-    { id: 'member2', label: 'Member #2 IT_NO', alignRight: false },
-    { id: 'member3', label: 'Member #3 IT_NO', alignRight: false },
-    { id: 'membercount', label: 'Member Count', alignRight: false },
+    // { id: 'leaderid', label: 'Leader IT_NO', alignRight: false },
+    // { id: 'leader_email', label: 'Leader Email', alignRight: false },
+    // { id: 'member1', label: 'Member #1 IT_NO', alignRight: false },
+    // { id: 'member2', label: 'Member #2 IT_NO', alignRight: false },
+    // { id: 'member3', label: 'Member #3 IT_NO', alignRight: false },
+    // { id: 'membercount', label: 'Member Count', alignRight: false },
     { id: 'research_topic', label: 'Research Topic', alignRight: false },
-    { id: 'research_field', label: 'Research Field', alignRight: false },
+    // { id: 'research_field', label: 'Research Field', alignRight: false },
     { id: 'description', label: 'Description', alignRight: false },
     { id: 'supervisorName', label: 'Supervisor Name', alignRight: false },
     { id: 'co_supervisorName', label: 'Co-Supervisor Name', alignRight: false },
-    { id: 'Created_Date', label: 'CreatedAt', alignRight: false },
-    { id: 'Updated_Date', label: 'UpdatedAt', alignRight: false },
+    // { id: 'Created_Date', label: 'CreatedAt', alignRight: false },
+    // { id: 'Updated_Date', label: 'UpdatedAt', alignRight: false },
 ];
 
 
@@ -76,8 +76,16 @@ function applySortFilter(array, comparator, query) {
 
 export default function CompositeTable(props) {
     const {
-        topics
-    } = props
+        topics,
+        topicData,
+        setTopicData,
+        handleSubmit,
+        clear,
+        currentId,
+        setCurrentId,
+        value,
+        setValue
+    } = props;
 
 
     console.log(topics)
@@ -173,7 +181,8 @@ export default function CompositeTable(props) {
                             />
                             <TableBody>
                                 {filteredUsers.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((row) => {
-                                    const { _id, status, groupid, leaderid, leader_email, member1, member2, member3, membercount, research_topic, research_field, description, supervisorName, co_supervisorName, Created_Date, Updated_Date } = row;
+                                    // const { _id, status, groupid, leaderid, leader_email, member1, member2, member3, membercount, research_topic, research_field, description, supervisorName, co_supervisorName, Created_Date, Updated_Date } = row;
+                                    const { _id, status, groupid, research_topic, description, supervisorName, co_supervisorName} = row;
                                     const isItemSelected = selected.indexOf(_id) !== -1;
 
                                     return (
@@ -189,47 +198,36 @@ export default function CompositeTable(props) {
                                                 <Checkbox checked={isItemSelected} onChange={(event) => handleClick(event, _id)} />
                                             </TableCell>
 
-                                            {/* <TableCell component="left" > {status} </TableCell> */}
-
-                                            <TableCell align="left">
-                                                {/* <Label variant="ghost" color={(status === 'banned' && 'error') || 'success'}>
-                                                    {sentenceCase(status)}
-                                                </Label> */}
+                                            <TableCell align="center">
                                                 {(status == "pending" ?
                                                     <>
-                                                        <Button variant="outlined" color="error">
-                                                            Error
+                                                        <Button variant="contained" color="error" style={{ borderRadius: '25px', fontSize: '11px' }}>
+                                                            pending
                                                         </Button>
                                                     </>
                                                     :
                                                     <>
-                                                        <Button variant="contained" color="success">
-                                                            Success
+                                                        <Button variant="contained" color="success" style={{ borderRadius: '25px', fontSize: '11px' }}>
+                                                            accepted
                                                         </Button>
                                                     </>
                                                 )}
                                             </TableCell>
 
-                                            {/* <TableCell align="left">
-                                                <Button variant="contained" color="error" style = {{ borderRadius: '25px', fontSize: '13px'}}>
-                                                    {status}
-                                                </Button>
-                                            </TableCell> */}
-
                                             <TableCell component="left" > {groupid} </TableCell>
-                                            <TableCell component="left" > {leaderid} </TableCell>
+                                            {/* <TableCell component="left" > {leaderid} </TableCell>
                                             <TableCell component="left" > {leader_email} </TableCell>
                                             <TableCell component="left" > {member1} </TableCell>
                                             <TableCell component="left" > {member2} </TableCell>
                                             <TableCell component="left" > {member3} </TableCell>
-                                            <TableCell component="left" > {membercount} </TableCell>
+                                            <TableCell component="left" > {membercount} </TableCell> */}
                                             <TableCell component="left" > {research_topic} </TableCell>
-                                            <TableCell component="left" > {research_field} </TableCell>
+                                            {/* <TableCell component="left" > {research_field} </TableCell> */}
                                             <TableCell component="left" > {description} </TableCell>
                                             <TableCell component="left" > {supervisorName} </TableCell>
                                             <TableCell component="left" > {co_supervisorName} </TableCell>
-                                            <TableCell component="left" > {Created_Date} </TableCell>
-                                            <TableCell component="left" > {Updated_Date} </TableCell>
+                                            {/* <TableCell component="left" > {Created_Date} </TableCell>
+                                            <TableCell component="left" > {Updated_Date} </TableCell> */}
 
                                             {/* <TableCell align="left">{company}</TableCell>
                                             <TableCell align="left">{role}</TableCell>
@@ -241,7 +239,18 @@ export default function CompositeTable(props) {
                                             </TableCell> */}
 
                                             <TableCell align="right">
-                                                <UserMoreMenu />
+                                                <UserMoreMenu
+                                                    row={row}
+                                                    topics={topics}
+                                                    topicData={topicData}
+                                                    setTopicData={setTopicData}
+                                                    handleSubmit={handleSubmit}
+                                                    clear={clear}
+                                                    currentId={currentId}
+                                                    setCurrentId={setCurrentId}
+                                                    value={value}
+                                                    setValue={setValue}
+                                                />
                                             </TableCell>
                                         </TableRow>
                                     );
