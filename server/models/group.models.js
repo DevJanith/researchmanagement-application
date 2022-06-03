@@ -1,26 +1,36 @@
 import mongoose from "mongoose";
 
 const GroupSchema = mongoose.Schema({
-    GroupName: {
+    groupName: {
         type: String,
         required: true
     },
-    GroupID: {
+    groupID: {
         type: String,
         required: true
     },
-    States: String,
-    Created_Date: Date,
-    Updated_Date: Date,
-    Member_Count: String,
-    ResearchID: String,
-    FinalID: String,
-    GroupDetails: [
+    memberCount: String,
+    // researchID: String,
+    // finalID: String,
+    groupDetails: [
         {
             studentID: String,
-            StudentName: String,
+            studentQNumber: String,
+            studentName: String,
         }
     ],
+    states: {
+        type: String,
+        default: "1"
+    },
+    createdAt: {
+        type: Date,
+        default: new Date()
+    },
+    updatedAt: {
+        type: Date,
+        default: new Date()
+    }
 
 });
 

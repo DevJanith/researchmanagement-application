@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
 
 const TopicSchema = mongoose.Schema({
-    groupid:{
+    groupid: {
         type: String,
         required: true
     },
@@ -32,7 +32,10 @@ const TopicSchema = mongoose.Schema({
     },
     supervisorName: String,
     co_supervisorName: String,
-    
+    status: {
+        type: String,
+        default: "pending"
+    },
     createdAt: {
         type: Date,
         default: new Date()

@@ -1,6 +1,6 @@
 import express from "express";
-import { getGroup, getSpecifiedGroup, createGroup, updateGroup, deleteGroup} from "../controllers/group.controller.js";
- 
+import { getGroup, getSpecifiedGroup, createGroup, updateGroup, deleteGroup } from "../controllers/group.controller.js";
+
 const router = express.Router();
 
 //API calling
