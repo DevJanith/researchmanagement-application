@@ -4,10 +4,13 @@ import Tabs from '@mui/material/Tabs';
 import Typography from '@mui/material/Typography';
 import PropTypes from 'prop-types';
 import * as React from 'react';
-import PageLayout from '../../components/Layout/PageLayout';
-import Navbar from "../../components/navbar/Navbar";
-import Sidebar from "../../components/sidebar/Sidebar";
-import "./StudentManagement.scss";
+import PageLayout from '../../../components/Layout/PageLayout';
+import Navbar from "../../../components/navbar/Navbar";
+import Sidebar from "../../../components/sidebar/Sidebar";
+import CreateGroup from './CreateGroup/CreateGroup';
+import "./GroupManagement.scss";
+import UpdateGroup from './UpdateGroup/UpdateGroup';
+import ViewGroup from './ViewGroup/ViewGroup';
 
 function TabPanel(props) {
     const { children, value, index, ...other } = props;
@@ -42,35 +45,35 @@ function a11yProps(index) {
     };
 }
 
-export default function StudentManagement() {
+export default function GroupManagement() {
     const [value, setValue] = React.useState(0);
 
     const handleChange = (event, newValue) => {
         setValue(newValue);
     };
 
-    return ( 
+    return (
         <PageLayout>
-            <div className='student-management-tabs'>
+            <div className='group-management-tabs'>
                 <Box sx={{ width: '100%' }}>
                     <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
                         <Tabs value={value} onChange={handleChange} aria-label="basic tabs example">
-                            <Tab label="Item One" {...a11yProps(0)} />
-                            <Tab label="Item Two" {...a11yProps(1)} />
-                            <Tab label="Item Three" {...a11yProps(2)} />
+                            <Tab label="View Group" {...a11yProps(0)} />
+                            <Tab label="Create Group" {...a11yProps(1)} />
+                            <Tab label="Update Group" {...a11yProps(2)} />
                         </Tabs>
                     </Box>
                     <TabPanel value={value} index={0}>
-                        DashBoard
+                        <ViewGroup />
                     </TabPanel>
                     <TabPanel value={value} index={1}>
-                        Item Two
+                        <CreateGroup />
                     </TabPanel>
                     <TabPanel value={value} index={2}>
-                        Item Three
+                        <UpdateGroup />
                     </TabPanel>
                 </Box>
             </div>
-        </PageLayout> 
+        </PageLayout>
     );
 }
