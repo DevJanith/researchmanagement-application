@@ -14,6 +14,8 @@ const staffSchema = mongoose.Schema({
     co_Superviser_ID: String,
     superviser_ID: String,
     panel_ID: String,
+    emailAddress: String,
+    contactNumber: String
 	
 });
 

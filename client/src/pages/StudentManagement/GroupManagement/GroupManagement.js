@@ -4,6 +4,7 @@ import Tabs from '@mui/material/Tabs';
 import Typography from '@mui/material/Typography';
 import PropTypes from 'prop-types';
 import * as React from 'react';
+import PageLayout from '../../../components/Layout/PageLayout';
 import Navbar from "../../../components/navbar/Navbar";
 import Sidebar from "../../../components/sidebar/Sidebar";
 import CreateGroup from './CreateGroup/CreateGroup';
@@ -52,33 +53,27 @@ export default function GroupManagement() {
     };
 
     return (
-        <div className="group-management">
-            <Sidebar />
-            <div className="group-management-container">
-                <Navbar />
-                <div className='group-management-body'>
-                    <div className='group-management-tabs'>
-                        <Box sx={{ width: '100%' }}>
-                            <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
-                                <Tabs value={value} onChange={handleChange} aria-label="basic tabs example">
-                                    <Tab label="View Group" {...a11yProps(0)} />
-                                    <Tab label="Create Group" {...a11yProps(1)} />
-                                    <Tab label="Update Group" {...a11yProps(2)} />
-                                </Tabs>
-                            </Box>
-                            <TabPanel value={value} index={0}>
-                                <ViewGroup />
-                            </TabPanel>
-                            <TabPanel value={value} index={1}>
-                                <CreateGroup />
-                            </TabPanel>
-                            <TabPanel value={value} index={2}>
-                                <UpdateGroup />
-                            </TabPanel>
-                        </Box>
-                    </div>
-                </div>
+        <PageLayout>
+            <div className='group-management-tabs'>
+                <Box sx={{ width: '100%' }}>
+                    <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
+                        <Tabs value={value} onChange={handleChange} aria-label="basic tabs example">
+                            <Tab label="View Group" {...a11yProps(0)} />
+                            <Tab label="Create Group" {...a11yProps(1)} />
+                            <Tab label="Update Group" {...a11yProps(2)} />
+                        </Tabs>
+                    </Box>
+                    <TabPanel value={value} index={0}>
+                        <ViewGroup />
+                    </TabPanel>
+                    <TabPanel value={value} index={1}>
+                        <CreateGroup />
+                    </TabPanel>
+                    <TabPanel value={value} index={2}>
+                        <UpdateGroup />
+                    </TabPanel>
+                </Box>
             </div>
-        </div>
+        </PageLayout>
     );
 }

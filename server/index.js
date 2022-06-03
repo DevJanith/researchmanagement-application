@@ -32,11 +32,11 @@ app.use(bodyParser.urlencoded({ limit: "30mb", extended: true }));
 app.use(cors());
 
 app.use('/posts', postRoutes);
-app.use('/Student', StudentRoutes);
-app.use('/StudentCon', StudentContactRoutes);
-app.use('/Group', GroupRoutes);
-app.use('/GroupDetails', GroupDetailsRoutes);
-app.use('/PresentationTemp', PresentationTempRoutes);
+app.use('/student', StudentRoutes);
+app.use('/studentCon', StudentContactRoutes);
+app.use('/group', GroupRoutes);
+app.use('/groupDetails', GroupDetailsRoutes);
+app.use('/presentationTemp', PresentationTempRoutes);
 app.use('/panel', panelRoutes);
 app.use('/panelMember', panelMemberRoutes);
 app.use('/staff', staffRoutes);

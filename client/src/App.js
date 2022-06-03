@@ -16,6 +16,7 @@ import UnderContraction from "./pages/underContraction/UnderContraction";
 import TutorialManagement from "./pages/TutorialManagement/TutorialManagement";
 import "./style/dark.scss";
 import GroupManagement from "./pages/StudentManagement/GroupManagement/GroupManagement";
+import CompositeTable from "./pages/CompositeTable/CompositeTable";
 
 function App() {
 
@@ -32,6 +33,7 @@ function App() {
             <Route path="student-management" >
               <Route index element={<StudentManagement />} />
               <Route path="group" element={<GroupManagement />} />
+              <Route path="table" element={<CompositeTable />} />
             </Route>
             <Route path="tutorial-management">
               <Route index element={<TutorialManagement />} />

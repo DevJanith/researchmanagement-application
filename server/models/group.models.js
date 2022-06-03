@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
 
 const GroupSchema = mongoose.Schema({
-    GroupName:{
+    GroupName: {
         type: String,
         required: true
     },
@@ -15,6 +15,12 @@ const GroupSchema = mongoose.Schema({
     Member_Count: String,
     ResearchID: String,
     FinalID: String,
+    GroupDetails: [
+        {
+            studentID: String,
+            StudentName: String,
+        }
+    ],
 
 });
 

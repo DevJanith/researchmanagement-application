@@ -13,6 +13,7 @@ const StudentSchema = mongoose.Schema({
         type: String,
         required: true
     },
+    ContactNumber: String,
     DOB: String,
     Year: String,
     Semester: String,
@@ -24,12 +25,7 @@ const StudentSchema = mongoose.Schema({
     GroupID: String,
     LoginID: String,
     ResearchID: String,
-    FinalID: String,
-
-    // createdAt: {
-    //     type: Date,
-    //     default: new Date()
-    // }
+    FinalID: String, 
 
 });
 
