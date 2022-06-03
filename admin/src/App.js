@@ -13,7 +13,7 @@ import New from "./pages/new/New";
 import Registration from "./pages/registration/Registration";
 import Single from "./pages/single/Single";
 import StaffManagement from "./pages/StaffManagement/StaffManagement";
-import ResearchTopics from "./pages/StaffManagement/ResearchTopics";
+import ResearchTopics from "./pages/StaffManagement/ResearchTopicsManagement/ResearchTopics";
 import MarkingScheme from "./pages/StaffManagement/MarkingScheme";
 import ResearchDocuments from "./pages/StaffManagement/ResearchDocuments";
 import UnderContraction from "./pages/underContraction/UnderContraction";
