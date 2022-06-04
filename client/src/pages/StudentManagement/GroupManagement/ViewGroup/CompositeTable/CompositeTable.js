@@ -1,14 +1,16 @@
 import {
-    Button, Card, Checkbox, Stack, Table, TableBody,
+    Button, Card, Checkbox, Chip, Stack, Table, TableBody,
     TableCell, TableContainer,
     TablePagination, TableRow, Typography
 } from '@mui/material';
 import { filter } from 'lodash';
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link as RouterLink } from 'react-router-dom';
 import Iconify from './Components/Iconify';
 import SearchNotFound from './Components/SearchNotFound';
 import { UserListHead, UserListToolbar, UserMoreMenu } from './sections/@dashboard/user';
+import PendingIcon from '@mui/icons-material/Pending';
+import CheckRoundedIcon from '@mui/icons-material/CheckRounded';
 // mock
 // import USERLIST from './_mock/user';
 
@@ -183,7 +185,18 @@ export default function CompositeTable(props) {
                                         </TableCell>
                                         <TableCell align="left">{groupName}</TableCell>
                                         <TableCell align="left">{memberCount}</TableCell>
-                                        <TableCell align="left">{states == 1 ? 'active' : 'de-active'}</TableCell>
+                                        <TableCell align="left">
+                                            {(states == "1" ?
+                                                <>
+                                                    <Chip icon={< CheckRoundedIcon />} label="Active" color="success" />
+                                                </>
+                                                :
+                                                <>
+                                                    <Chip icon={< PendingIcon />} label="De-Active" color="error" />
+                                                </>
+                                            )}
+
+                                        </TableCell>
                                         <TableCell align="left">{createdAt}</TableCell>
                                         <TableCell align="left">{updatedAt}</TableCell>
 
