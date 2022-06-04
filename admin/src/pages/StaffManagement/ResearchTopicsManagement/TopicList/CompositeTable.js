@@ -157,7 +157,7 @@ export default function CompositeTable(props) {
             <Card>
                 <UserListToolbar numSelected={selected.length} filterName={filterName} onFilterName={handleFilterByName} />
 
-                <Scrollbar>
+                {/* <Scrollbar> */}
                     <TableContainer sx={{ minWidth: 200 }}>
                         <Table>
                             <UserListHead
@@ -251,7 +251,7 @@ export default function CompositeTable(props) {
                             )}
                         </Table>
                     </TableContainer>
-                </Scrollbar>
+                {/* </Scrollbar> */}
 
                 <TablePagination
                     rowsPerPageOptions={[5, 10, 25]}
