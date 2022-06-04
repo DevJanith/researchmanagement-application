@@ -16,8 +16,6 @@ const options = [
 
 export default function ItemCreateForm(props) {
 
-    const dispatch = useDispatch(); 
-
     const {
         groupData,
         setGroupData,
@@ -29,6 +27,8 @@ export default function ItemCreateForm(props) {
         setValue,
         options
     } = props
+
+    const dispatch = useDispatch();
 
 
     const groupSchema = Yup.object().shape({

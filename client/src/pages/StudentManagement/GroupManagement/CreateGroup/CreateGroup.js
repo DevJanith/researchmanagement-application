@@ -5,9 +5,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { getUserAccordingToType } from "../../../../actions/auth";
 
 const CreateGroup = (props) => {
-
-    const dispatch = useDispatch();
-
     const {
         groupData,
         setGroupData,
@@ -18,6 +15,8 @@ const CreateGroup = (props) => {
         value,
         setValue,
     } = props
+
+    const dispatch = useDispatch();
 
     //select data
 

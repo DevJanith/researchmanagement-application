@@ -1,12 +1,10 @@
 import { Button, Stack, TextField } from '@mui/material';
 import { Field, Form, FormikProvider, useFormik } from 'formik';
-import React, { useEffect, useState } from 'react';
-import makeAnimated from 'react-select/animated';
+import React from 'react';
+import { useDispatch } from "react-redux";
 import * as Yup from 'yup';
-import { useDispatch, useSelector } from "react-redux";
+import { updateGroup } from "../../../../../actions/group.action";
 import { SelectField } from './Fields/CustomSelectFiled';
-import { getUserAccordingToType } from "../../../../../actions/auth"
-import { updateGroup } from "../../../../../actions/group.action"
 
 const options = [
     { value: 'foo', label: 'Foo' },
@@ -15,30 +13,6 @@ const options = [
 
 
 export default function GroupUpdateForm(props) {
-
-    const dispatch = useDispatch();
-
-    const [dataType, setDataType] = useState({
-        userType: ''
-    })
-
-    useEffect(() => {
-        try {
-            dataType.userType = "student"
-            dispatch(getUserAccordingToType(dataType));
-        } catch (error) {
-            console.log(error);
-        }
-    }, [dataType]);
-
-    const users = useSelector((state) => state.authReducer);
-    {
-        users.map((user, index) => (
-            user.value = user._id,
-            user.label = `${user?.userDetails?.userName} - ${user?.userDetails?.userQNumber}`
-        ))
-    }
-
     const {
         groupData,
         setGroupData,
@@ -48,13 +22,11 @@ export default function GroupUpdateForm(props) {
         setCurrentId,
         value,
         setValue,
+        options,
+        defaultOptions
     } = props
 
-    {
-        groupData.value = groupData._id;
-        // groupData.label = `${groupData?.userDetails?.userName} - ${groupData?.userDetails?.userQNumber}`
-    }
-
+    const dispatch = useDispatch();
 
     const groupSchema = Yup.object().shape({
         groupName: Yup.string().required('group Name is required'),
@@ -80,7 +52,7 @@ export default function GroupUpdateForm(props) {
 
     const { errors, touched, values, isSubmitting, handleSubmit, getFieldProps } = formik;
 
-
+    console.log(defaultOptions)
     return (
         <FormikProvider value={formik}>
             <Form autoComplete="off" noValidate onSubmit={handleSubmit}>
@@ -101,7 +73,7 @@ export default function GroupUpdateForm(props) {
                             helperText={touched.memberCount && errors.memberCount}
                         />
                     </Stack>
-                    <Field fullWidth name={'groupDetails'} component={SelectField} options={users} defaultValue={groupData} />
+                    <Field fullWidth name={'groupDetails'} component={SelectField} options={options} defaultOptions={defaultOptions} />
                 </Stack>
 
                 <div style={{ display: "flex", direction: "row", marginTop: "2%" }}>

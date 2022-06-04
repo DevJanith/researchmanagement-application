@@ -6,7 +6,6 @@ import PropTypes from 'prop-types';
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from "react-redux";
 import { createGroup, getGroups, updateGroup } from "../../../actions/group.action";
-import { getUserAccordingToType } from "../../../actions/auth";
 import PageLayout from '../../../components/Layout/PageLayout';
 import CreateGroup from './CreateGroup/CreateGroup';
 import "./GroupManagement.scss";
@@ -110,7 +109,7 @@ export default function GroupManagement() {
             dispatch(updateGroup(currentId, groupData));
             clear();
         }
-    }; 
+    };
 
     return (
         <PageLayout>
@@ -145,7 +144,7 @@ export default function GroupManagement() {
                             currentId={currentId}
                             setCurrentId={setCurrentId}
                             value={value}
-                            setValue={setValue}  
+                            setValue={setValue}
                         />
                     </TabPanel>
                     <TabPanel value={value} index={2}>

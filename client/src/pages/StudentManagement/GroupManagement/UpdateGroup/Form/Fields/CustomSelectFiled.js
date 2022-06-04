@@ -38,12 +38,12 @@ export const SelectField = ({
     options,
     field,
     form,
-    defaultValue
+    defaultOptions
 }) => (
     <Select
         options={options}
         name={field.name}
-        defaultValue={defaultValue}
+        defaultValue={defaultOptions}
         isMulti
         value={options ? options.find(option => option.value === field.value) : ''}
         onChange={(option) => {
