@@ -23,13 +23,30 @@ const ResearchSchema = mongoose.Schema({
         panelName: String
     },
     groupDetails: {
-        groupId: String,
+        groupName: {
+            type: String,
+            required: true
+        },
+        groupID: {
+            type: String,
+        },
         memberCount: String,
-        groupMembers: [
+        // researchID: String,
+        // finalID: String,
+        groupDetails: [
             {
-                studentID: String,
-                studentQNumber: String,
-                studentName: String,
+                userDetails: {
+                    userQNumber: String,
+                    userEmail: String,
+                    userName: String,
+                    userContactNumber: String,
+                    userAddress: String,
+                    userType: String,
+                },
+                states: String,
+                _id: String,
+                value: String,
+                label: String
             }
         ],
     },
