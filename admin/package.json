@@ -5,6 +5,7 @@
   "proxy": "http://localhost:5000/",
   "homepage": "http://localhost:3000/auth",
   "dependencies": {
+    "@ant-design/icons": "^4.7.0",
     "@emotion/react": "^11.9.0",
     "@emotion/styled": "^11.8.1",
     "@faker-js/faker": "^7.1.0",
@@ -21,6 +22,7 @@
     "focus-trap-react": "^8.11.2",
     "formik": "^2.2.9",
     "react": "^18.1.0",
+    "react-chat-engine": "^1.11.22",
     "react-circular-progressbar": "^2.0.4",
     "react-dom": "^18.1.0",
     "react-google-login": "^5.2.2",

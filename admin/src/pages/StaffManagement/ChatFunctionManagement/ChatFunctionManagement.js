@@ -5,6 +5,7 @@ import Tab from '@mui/material/Tab';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 import PageLayout from '../../../components/Layout/PageLayout';
+import ChatFunction from './ChatFunction/ChatFunction';
 
 function TabPanel(props) {
     const { children, value, index, ...other } = props;
@@ -59,10 +60,12 @@ export default function ChatFunctionManagement() {
                             </Box>
                             <TabPanel value={value} index={0}>
 
-                                <Typography variant="h4" sx={{ mb: 4}}>
-                                    Connected ! - Chat With Us!
+                                <Typography variant="h4" sx={{ mb: 0}} style={{flex: 6, boxShadow: '2px 4px 10px 1px rgba(201, 201, 201, 0.47)', padding: '20px', background: 'rgb(240, 240, 240)'}}>
+                                    Welcome to ChatBot! 
                                 </Typography>
                                 
+                                <ChatFunction />
+
                             </TabPanel>
                             <TabPanel value={value} index={1}>
                                 Item Two
