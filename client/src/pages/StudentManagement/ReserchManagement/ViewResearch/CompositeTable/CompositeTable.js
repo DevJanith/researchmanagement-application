@@ -18,8 +18,8 @@ const TABLE_HEAD = [
     { id: 'researchTopic', label: 'Research Topic', alignRight: false },
     { id: 'researchField', label: 'Research Field', alignRight: false },
     { id: 'description', label: 'Description', alignRight: false },
-    { id: 'supervisorName', label: 'Supervisor Name', alignRight: false },
-    { id: 'coSupervisorName', label: 'Co-Supervisor Name', alignRight: false },
+    // { id: 'supervisorName', label: 'Supervisor Name', alignRight: false },
+    // { id: 'coSupervisorName', label: 'Co-Supervisor Name', alignRight: false },
     { id: 'states', label: 'Status', alignRight: false },
     { id: 'createsAt', label: 'Created At', alignRight: false },
     { id: 'updatedAt', label: 'Updated At', alignRight: false },
@@ -198,8 +198,8 @@ export default function CompositeTable(props) {
                                         <TableCell align="left">{researchTopic}</TableCell>
                                         <TableCell align="left">{researchField}</TableCell>
                                         <TableCell align="left">{description}</TableCell>
-                                        <TableCell align="left">{supervisorName?.supervisorName}</TableCell>
-                                        <TableCell align="left">{coSupervisorName?.coSupervisorName}</TableCell>
+                                        {/* <TableCell align="left">{supervisorName?.supervisorName}</TableCell>
+                                        <TableCell align="left">{coSupervisorName?.coSupervisorName}</TableCell> */}
                                         <TableCell align="left">
                                             {(status == "1" ?
                                                 <>

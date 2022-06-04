@@ -8,7 +8,7 @@ import { getGroups } from "../../../../../actions/group.action";
 import { SingleSelectField } from "./Fields/CustomSingleSelectField";
 
 
-export default function CreateForm(props) {
+export default function UpdateForm(props) {
 
     const {
         value,

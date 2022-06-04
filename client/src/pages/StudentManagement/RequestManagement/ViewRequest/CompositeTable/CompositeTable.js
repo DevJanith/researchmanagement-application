@@ -15,8 +15,11 @@ import CheckRoundedIcon from '@mui/icons-material/CheckRounded';
 // import USERLIST from './_mock/user';
 
 const TABLE_HEAD = [
-    { id: 'groupName', label: 'Group Name', alignRight: false },
-    { id: 'memberCount', label: 'Member Count', alignRight: false },
+    { id: 'researchTopic', label: 'Research Topic', alignRight: false },
+    { id: 'researchField', label: 'Research Field', alignRight: false },
+    { id: 'description', label: 'Description', alignRight: false },
+    { id: 'supervisorName', label: 'Supervisor Name', alignRight: false },
+    { id: 'coSupervisorName', label: 'Co-Supervisor Name', alignRight: false },
     { id: 'states', label: 'Status', alignRight: false },
     { id: 'createsAt', label: 'Created At', alignRight: false },
     { id: 'updatedAt', label: 'Updated At', alignRight: false },
@@ -47,7 +50,8 @@ function applySortFilter(array, comparator, query) {
         return a[1] - b[1];
     });
     if (query) {
-        return filter(array, (data) => data.groupName.toLowerCase().indexOf(query.toLowerCase()) !== -1);
+        return filter(array, (data) => data.researchTopic.toLowerCase().indexOf(query.toLowerCase()) !== -1);
+
     }
     return stabilizedThis.map((el) => el[0]);
 }
@@ -57,9 +61,9 @@ export default function CompositeTable(props) {
     const {
         value,
         setValue,
-        groups,
-        groupData,
-        setGroupData,
+        researches,
+        researchData,
+        setResearchData,
         handleSubmit,
         clear,
         currentId,
@@ -68,15 +72,15 @@ export default function CompositeTable(props) {
 
     const [data, setData] = useState([])
 
-    // useEffect(() => {
-    //     if (groups) {
-    //         try {
-    //             setData(groups)
-    //         } catch (error) {
-    //             console.log(error)
-    //         }
-    //     }
-    // }, [groups])
+    useEffect(() => {
+        if (researches) {
+            try {
+                setData(researches)
+            } catch (error) {
+                console.log(error)
+            }
+        }
+    }, [researches])
 
 
     const [page, setPage] = useState(0);
@@ -155,7 +159,7 @@ export default function CompositeTable(props) {
                 <UserListToolbar numSelected={selected.length} filterName={filterName} onFilterName={handleFilterByName} />
 
                 {/* <Scrollbar> */}
-                <TableContainer sx={{ minWidth: 800 }}>
+                <TableContainer sx={{ minWidth: 800, maxWidth: 1100 }}>
                     <Table>
                         <UserListHead
                             order={order}
@@ -168,7 +172,17 @@ export default function CompositeTable(props) {
                         />
                         <TableBody>
                             {filteredUsers.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((row) => {
-                                const { _id, groupName, memberCount, states, createdAt, updatedAt } = row;
+                                const {
+                                    _id,
+                                    researchTopic,
+                                    researchField,
+                                    description,
+                                    supervisorName,
+                                    coSupervisorName,
+                                    status,
+                                    createdAt,
+                                    updatedAt
+                                } = row;
                                 const isItemSelected = selected.indexOf(_id) !== -1;
 
                                 return (
@@ -183,10 +197,13 @@ export default function CompositeTable(props) {
                                         <TableCell padding="checkbox">
                                             <Checkbox checked={isItemSelected} onChange={(event) => handleClick(event, _id)} />
                                         </TableCell>
-                                        <TableCell align="left">{groupName}</TableCell>
-                                        <TableCell align="left">{memberCount}</TableCell>
+                                        <TableCell align="left">{researchTopic}</TableCell>
+                                        <TableCell align="left">{researchField}</TableCell>
+                                        <TableCell align="left">{description}</TableCell>
+                                        <TableCell align="left">{supervisorName?.supervisorName}</TableCell>
+                                        <TableCell align="left">{coSupervisorName?.coSupervisorName}</TableCell>
                                         <TableCell align="left">
-                                            {(states == "1" ?
+                                            {(status == "1" ?
                                                 <>
                                                     <Chip icon={< CheckRoundedIcon />} label="Active" color="success" />
                                                 </>
@@ -203,14 +220,15 @@ export default function CompositeTable(props) {
                                         <TableCell align="right">
                                             <UserMoreMenu
                                                 row={row}
-                                                groupData={groupData}
-                                                setGroupData={setGroupData}
+                                                value={value}
+                                                setValue={setValue}
+                                                researches={researches}
+                                                researchData={researchData}
+                                                setResearchData={setResearchData}
                                                 handleSubmit={handleSubmit}
                                                 clear={clear}
                                                 currentId={currentId}
                                                 setCurrentId={setCurrentId}
-                                                value={value}
-                                                setValue={setValue}
                                             />
                                         </TableCell>
                                     </TableRow>

@@ -15,8 +15,8 @@ import CheckRoundedIcon from '@mui/icons-material/CheckRounded';
 // import USERLIST from './_mock/user';
 
 const TABLE_HEAD = [
-    { id: 'groupName', label: 'Group Name', alignRight: false },
-    { id: 'memberCount', label: 'Member Count', alignRight: false },
+    { id: 'groupName', label: 'Document Name', alignRight: false },
+    { id: 'memberCount', label: 'Document Description', alignRight: false },
     { id: 'states', label: 'Status', alignRight: false },
     { id: 'createsAt', label: 'Created At', alignRight: false },
     { id: 'updatedAt', label: 'Updated At', alignRight: false },

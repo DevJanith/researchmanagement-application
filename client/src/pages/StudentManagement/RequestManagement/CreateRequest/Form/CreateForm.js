@@ -87,7 +87,9 @@ export default function CreateForm(props) {
     const researchSchema = Yup.object().shape({
         researchTopic: Yup.string().required('Research Topic Name is required'),
         researchField: Yup.string().required('Research Field is required'),
-        description: Yup.string().required('Description is required'), 
+        description: Yup.string().required('Description is required'),
+        // supervisorName: null,
+        // groupDetails: null
     });
 
     const formik = useFormik({
@@ -141,14 +143,14 @@ export default function CreateForm(props) {
                             helperText={touched.description && errors.description}
                         />
                     </Stack>
-                    {/* <Grid container spacing={2}>
+                    <Grid container spacing={2}>
                         <Grid item xs={6} md={6}>
                             <Field fullWidth name={'supervisorDetails'} component={SingleSelectField} options={userOptions} />
                         </Grid>
                         <Grid item xs={6} md={6}>
                             <Field fullWidth name={'groupDetails'} component={SingleSelectField} options={groupOptions} />
                         </Grid>
-                    </Grid> */}
+                    </Grid>
                 </Stack>
 
                 <div style={{ display: "flex", direction: "row", marginTop: "2%" }}>
