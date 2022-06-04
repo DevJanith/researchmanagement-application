@@ -6,6 +6,7 @@ import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 import Navbar from "../../../components/navbar/Navbar";
 import Sidebar from "../../../components/sidebar/Sidebar";
+import ViewRoleTable from "../UserReservationManagement/userReservationTable";
 import "./UserReservation.scss"
 
 function TabPanel(props) {
@@ -61,11 +62,11 @@ export default function AdminManagement() {
                                     <Tab label="View Roles" {...a11yProps(0)} />
                                     <Tab label="Create Roles" {...a11yProps(1)} />
                                     <Tab label="Update Roles" {...a11yProps(2)} />
-                                    
+
                                 </Tabs>
                             </Box>
                             <TabPanel value={value} index={0}>
-                                Item One
+                                <ViewRoleTable />
                             </TabPanel>
                             <TabPanel value={value} index={1}>
                                 Item Two

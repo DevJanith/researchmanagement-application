@@ -1,5 +1,5 @@
 import express from "express";
-import { getPresentationTemp, getSpecifiedPresentationTemp, createPresentationTemp, updatePresentationTemp, deletePresentationTemp} from "../controllers/presentationTemplate.controller.js";
+import { getPresentationTemp, getSpecifiedPresentationTemp, createPresentationTemp, updatePresentationTemp, deletePresentationTemp,likePresentationTemp} from "../controllers/presentationTemplate.controller.js";
  
 const router = express.Router();
 
@@ -11,6 +11,6 @@ router.get('/:id', getSpecifiedPresentationTemp); //get specified Presentation T
 router.post('/', createPresentationTemp); // Create Presentation Template
 router.patch('/:id', updatePresentationTemp); //update Presentation Template
 router.delete('/:id', deletePresentationTemp); //Delete Presentation Template
-
+router.patch('/:id/likePresentationTemp', likePresentationTemp);
 
 export default router;

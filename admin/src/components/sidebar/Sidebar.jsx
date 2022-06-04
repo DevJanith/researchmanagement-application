@@ -1,4 +1,3 @@
-
 import DashboardIcon from "@mui/icons-material/Dashboard";
 import ExitToAppIcon from "@mui/icons-material/ExitToApp";
 import PersonOutlineOutlinedIcon from "@mui/icons-material/PersonOutlineOutlined";
@@ -7,11 +6,11 @@ import { Link, useNavigate } from "react-router-dom";
 import { DarkModeContext } from "../../context/darkModeContext";
 import "./sidebar.scss";
 import { useDispatch } from "react-redux";
-import SupervisorAccountIcon from '@mui/icons-material/SupervisorAccount';
-import TopicIcon from '@mui/icons-material/Topic';
-import SchemaIcon from '@mui/icons-material/Schema';
-import DocumentScannerIcon from '@mui/icons-material/DocumentScanner';
-import StarIcon from '@mui/icons-material/Star';
+import SupervisorAccountIcon from "@mui/icons-material/SupervisorAccount";
+import TopicIcon from "@mui/icons-material/Topic";
+import SchemaIcon from "@mui/icons-material/Schema";
+import DocumentScannerIcon from "@mui/icons-material/DocumentScanner";
+import StarIcon from "@mui/icons-material/Star";
 
 const Sidebar = () => {
   const { dispatch } = useContext(DarkModeContext);
@@ -44,8 +43,6 @@ const Sidebar = () => {
       <hr />
       <div className="center">
         <ul>
-
-
           <p className="title">MAIN</p>
           <Link to={"/"} style={{ textDecoration: "none" }}>
             <li>
@@ -54,49 +51,72 @@ const Sidebar = () => {
             </li>
           </Link>
 
-
           <p className="title">Admin Management</p>
-          <Link to={"/user-reservation"} style={{ textDecoration: "none" }}>
+          <Link
+            to={"/admin-management/user-reservation"}
+            style={{ textDecoration: "none" }}
+          >
             <li>
               <PersonOutlineOutlinedIcon className="icon" />
               <span>User Reservation</span>
             </li>
           </Link>
-          <Link to={"/alocate-panel"} style={{ textDecoration: "none" }}>
+          <Link
+            to={"/admin-management/alocate-panel"}
+            style={{ textDecoration: "none" }}
+          >
             <li>
               <PersonOutlineOutlinedIcon className="icon" />
               <span>Alocate Panels</span>
             </li>
           </Link>
-          <Link to={"/materials"} style={{ textDecoration: "none" }}>
+          <Link
+            to={"/admin-management/materials"}
+            style={{ textDecoration: "none" }}
+          >
             <li>
               <PersonOutlineOutlinedIcon className="icon" />
               <span>Materials</span>
             </li>
           </Link>
-
-
-          
           <p className="title">Staff Management</p>
           <Link to={"/staff-management"} style={{ textDecoration: "none" }}>
-            <li><StarIcon className="icon" /><span style={{fontSize: '18px', color: '#00008B'}}>Supervisor <br/>Co-Supervisor</span></li>
+            <li>
+              <StarIcon className="icon" />
+              <span style={{ fontSize: "18px", color: "#00008B" }}>
+                Supervisor <br />
+                Co-Supervisor
+              </span>
+            </li>
           </Link>
-          
-            <li><DashboardIcon className="icon" style={{marginLeft: '30px'}}/><span>Dashboard</span></li>
+          <li>
+            <DashboardIcon className="icon" style={{ marginLeft: "30px" }} />
+            <span>Dashboard</span>
+          </li>
 
           <Link to={"/research-topics"} style={{ textDecoration: "none" }}>
-            <li><TopicIcon className="icon" style={{marginLeft: '30px'}}/><span>Research Topics</span></li>
+            <li>
+              <TopicIcon className="icon" style={{ marginLeft: "30px" }} />
+              <span>Research Topics</span>
+            </li>
           </Link>
 
           <Link to={"/marking-scheme"} style={{ textDecoration: "none" }}>
-            <li><SchemaIcon className="icon" style={{marginLeft: '30px'}}/><span>Marking Scheme</span></li>
+            <li>
+              <SchemaIcon className="icon" style={{ marginLeft: "30px" }} />
+              <span>Marking Scheme</span>
+            </li>
           </Link>
 
           <Link to={"/research-document"} style={{ textDecoration: "none" }}>
-            <li><DocumentScannerIcon className="icon" style={{marginLeft: '30px'}}/><span>Research Documents</span></li>
+            <li>
+              <DocumentScannerIcon
+                className="icon"
+                style={{ marginLeft: "30px" }}
+              />
+              <span>Research Documents</span>
+            </li>
           </Link>
-
-
 
           {/* <Link to={"/login"} style={{ textDecoration: "none" }}> */}
           <li onClick={logout} style={{ marginTop: "20%" }}>
