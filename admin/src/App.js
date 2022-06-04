@@ -12,19 +12,16 @@ import Auth from "./pages/auth/Auth";
 import CompositeTable from "./pages/CompositeTable/CompositeTable";
 import Home from "./pages/home/Home";
 import List from "./pages/list/list";
-import Login from "./pages/login/Login";
 import New from "./pages/new/New";
-import Registration from "./pages/registration/Registration";
+import NotFound from "./pages/notFound/NotFound";
 import Single from "./pages/single/Single";
-import MarkingScheme from "./pages/StaffManagement/MarkingScheme";
+import ChatManagement from "./pages/StaffManagement/ChatFunctionManagement/ChatFunctionManagement";
 import MarkingSchemeManagement from "./pages/StaffManagement/MarkingSchemeManagement/MarkingSchemeManagement";
 import ResearchDocuments from "./pages/StaffManagement/ResearchDocuments";
 import ResearchTopics from "./pages/StaffManagement/ResearchTopicsManagement/ResearchTopics";
 import StaffManagement from "./pages/StaffManagement/StaffManagement";
 import UnderContraction from "./pages/underContraction/UnderContraction";
-import ChatManagement from "./pages/StaffManagement/ChatFunctionManagement/ChatFunctionManagement";
 import "./style/dark.scss";
-import NotFound from "./pages/notFound/NotFound";
 
 
 function App() {
