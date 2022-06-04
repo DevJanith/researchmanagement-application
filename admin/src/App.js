@@ -18,6 +18,7 @@ import ResearchDocuments from "./pages/StaffManagement/ResearchDocuments";
 import ResearchTopics from "./pages/StaffManagement/ResearchTopicsManagement/ResearchTopics";
 import StaffManagement from "./pages/StaffManagement/StaffManagement";
 import UnderContraction from "./pages/underContraction/UnderContraction";
+import ChatManagement from "./pages/StaffManagement/ChatFunctionManagement/ChatFunctionManagement";
 import "./style/dark.scss";
 
 
@@ -50,6 +51,9 @@ function App() {
             </Route>
             <Route path="research-document">
               <Route index element={<ResearchDocuments />} />
+            </Route>
+            <Route path="chat-function">
+              <Route index element={<ChatManagement />} />
             </Route>
 
             <Route path="users" >

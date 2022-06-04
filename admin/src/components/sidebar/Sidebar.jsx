@@ -12,6 +12,9 @@ import TopicIcon from '@mui/icons-material/Topic';
 import SchemaIcon from '@mui/icons-material/Schema';
 import DocumentScannerIcon from '@mui/icons-material/DocumentScanner';
 import StarIcon from '@mui/icons-material/Star';
+import PeopleAltIcon from '@mui/icons-material/PeopleAlt';
+import DuoIcon from '@mui/icons-material/Duo';
+import { Button, Paper } from "@mui/material";
 
 const Sidebar = () => {
   const { dispatch } = useContext(DarkModeContext);
@@ -47,43 +50,61 @@ const Sidebar = () => {
 
 
           <p className="title">MAIN</p>
-          <Link to={"/"} style={{ textDecoration: "none" }}>
-            <li>
-              <DashboardIcon className="icon" />
-              <span>Dashboard</span>
-            </li>
-          </Link>
+          <Paper>
+            <Link to={"/"} style={{ textDecoration: "none" }}>
+              <li>
+                <DashboardIcon className="icon" />
+                <span>Dashboard</span>
+              </li>
+            </Link>
+          </Paper>
 
 
           <p className="title">Admin Management</p>
-          <Link to={"/admin-management"} style={{ textDecoration: "none" }}>
-            <li>
-              <PersonOutlineOutlinedIcon className="icon" />
-              <span>Admin Management</span>
-            </li>
-          </Link>
+          <Paper>
+            <Link to={"/admin-management"} style={{ textDecoration: "none" }}>
+              <li>
+                <PersonOutlineOutlinedIcon className="icon" />
+                <span>Admin Management</span>
+              </li>
+            </Link>
+          </Paper>
 
 
           
           <p className="title">Staff Management</p>
+          <Paper>
           <Link to={"/staff-management"} style={{ textDecoration: "none" }}>
-            <li><StarIcon className="icon" /><span style={{fontSize: '18px', color: '#00008B'}}>Supervisor <br/>Co-Supervisor</span></li>
+            <li>
+              <PeopleAltIcon className="icon" />
+              <span>Supervisor<br/>Co-Supervisor</span>
+            </li>
           </Link>
+          </Paper>
           
-            <li><DashboardIcon className="icon" style={{marginLeft: '30px'}}/><span>Dashboard</span></li>
+          <Paper>
+            <Link to={"/research-topics"} style={{ textDecoration: "none" }}>
+              <li><TopicIcon className="icon"/><span>Research Topics</span></li>
+            </Link>
+          </Paper>
 
-          <Link to={"/research-topics"} style={{ textDecoration: "none" }}>
-            <li><TopicIcon className="icon" style={{marginLeft: '30px'}}/><span>Research Topics</span></li>
-          </Link>
+          <Paper>
+            <Link to={"/marking-scheme"} style={{ textDecoration: "none" }}>
+              <li><SchemaIcon className="icon" /><span>Marking Scheme</span></li>
+            </Link>
+          </Paper>
 
-          <Link to={"/marking-scheme"} style={{ textDecoration: "none" }}>
-            <li><SchemaIcon className="icon" style={{marginLeft: '30px'}}/><span>Marking Scheme</span></li>
-          </Link>
+          <Paper>
+            <Link to={"/research-document"} style={{ textDecoration: "none" }}>
+              <li><DocumentScannerIcon className="icon" /><span>Research Documents</span></li>
+            </Link>
+          </Paper>
 
-          <Link to={"/research-document"} style={{ textDecoration: "none" }}>
-            <li><DocumentScannerIcon className="icon" style={{marginLeft: '30px'}}/><span>Research Documents</span></li>
-          </Link>
-
+          <Paper>
+            <Link to={"/chat-function"} style={{ textDecoration: "none" }}>
+              <li><DuoIcon className="icon" /><span>Chat with Us!</span></li>
+            </Link>
+          </Paper>
 
 
           {/* <Link to={"/login"} style={{ textDecoration: "none" }}> */}
