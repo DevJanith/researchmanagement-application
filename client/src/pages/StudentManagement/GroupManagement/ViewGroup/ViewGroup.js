@@ -1,5 +1,3 @@
-import AddIcon from '@mui/icons-material/Add';
-import { Button, Divider, Grid, Paper } from "@mui/material";
 import CompositeTable from './CompositeTable/CompositeTable';
 import "./ViewGroup.scss";
 

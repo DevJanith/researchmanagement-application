@@ -61,7 +61,17 @@ export default function ResearchManagement() {
                         </Tabs>
                     </Box>
                     <TabPanel value={value} index={0}>
-                        <ViewResearch />
+                        <ViewResearch
+                            // value={value}
+                            // setValue={setValue}
+                            // groups={groups}
+                            // groupData={groupData}
+                            // setGroupData={setGroupData}
+                            // handleSubmit={handleSubmit}
+                            // clear={clear}
+                            // currentId={currentId}
+                            // setCurrentId={setCurrentId}
+                        />
                     </TabPanel>
                     <TabPanel value={value} index={1}>
                         <CreateResearch />

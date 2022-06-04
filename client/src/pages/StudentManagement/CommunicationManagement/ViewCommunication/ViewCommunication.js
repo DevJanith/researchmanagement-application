@@ -1,9 +1,33 @@
-import React from 'react'
+import CompositeTable from './CompositeTable/CompositeTable';
 
-const ViewCommunication = () => {
+const ViewCommunication = (props) => {
+  const {
+    value,
+    setValue,
+    groups,
+    groupData,
+    setGroupData,
+    handleSubmit,
+    clear,
+    currentId,
+    setCurrentId
+  } = props
+
   return (
-    <div>ViewCommunication</div>
-  )
-}
+    <>
+      <CompositeTable
+        value={value}
+        setValue={setValue}
+        groups={groups}
+        groupData={groupData}
+        setGroupData={setGroupData}
+        handleSubmit={handleSubmit}
+        clear={clear}
+        currentId={currentId}
+        setCurrentId={setCurrentId}
+      />
+    </>
+  );
+};
 
-export default ViewCommunication
+export default ViewCommunication;

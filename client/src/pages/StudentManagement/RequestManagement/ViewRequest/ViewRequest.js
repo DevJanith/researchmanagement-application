@@ -1,9 +1,33 @@
-import React from 'react'
+import CompositeTable from './CompositeTable/CompositeTable';
 
-const ViewRequest = () => {
+const ViewRequest = (props) => {
+  const {
+    value,
+    setValue,
+    groups,
+    groupData,
+    setGroupData,
+    handleSubmit,
+    clear,
+    currentId,
+    setCurrentId
+  } = props
+
   return (
-    <div>ViewRequest</div>
-  )
-}
+    <>
+      <CompositeTable
+        value={value}
+        setValue={setValue}
+        groups={groups}
+        groupData={groupData}
+        setGroupData={setGroupData}
+        handleSubmit={handleSubmit}
+        clear={clear}
+        currentId={currentId}
+        setCurrentId={setCurrentId}
+      />
+    </>
+  );
+};
 
-export default ViewRequest
+export default ViewRequest;
