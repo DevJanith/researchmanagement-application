@@ -9,16 +9,17 @@ import Iconify from '../../../Components/Iconify';
 
 export default function UserMoreMenu(props) {
   const {
-    row,
-    groupData,
-    setGroupData,
+    value,
+    setValue,
+    researches,
+    researchData,
+    setResearchData,
     handleSubmit,
     clear,
     currentId,
     setCurrentId,
-    value,
-    setValue,
-} = props
+    row
+  } = props
 
   const ref = useRef(null);
   const [isOpen, setIsOpen] = useState(false);

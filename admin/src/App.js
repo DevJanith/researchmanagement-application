@@ -17,16 +17,16 @@ import New from "./pages/new/New";
 import Registration from "./pages/registration/Registration";
 import Single from "./pages/single/Single";
 import MarkingScheme from "./pages/StaffManagement/MarkingScheme";
+import MarkingSchemeManagement from "./pages/StaffManagement/MarkingSchemeManagement/MarkingSchemeManagement";
 import ResearchDocuments from "./pages/StaffManagement/ResearchDocuments";
 import ResearchTopics from "./pages/StaffManagement/ResearchTopicsManagement/ResearchTopics";
 import StaffManagement from "./pages/StaffManagement/StaffManagement";
 import UnderContraction from "./pages/underContraction/UnderContraction";
+import ChatManagement from "./pages/StaffManagement/ChatFunctionManagement/ChatFunctionManagement";
 import "./style/dark.scss";
 import NotFound from "./pages/notFound/NotFound";
 
-// 
 
-// 
 function App() {
 
   const { darkMode } = useContext(DarkModeContext);
@@ -56,13 +56,34 @@ function App() {
               <Route index element={<ResearchTopics />} />
             </Route>
             <Route path="marking-scheme">
-              <Route index element={<MarkingScheme />} />
+              <Route index element={<MarkingSchemeManagement />} />
             </Route>
             <Route path="research-document">
               <Route index element={<ResearchDocuments />} />
             </Route>
-            <Route path="user-reservation" >
-              <Route index element={<UserReservation />} />
+            <Route path="chat-function">
+              <Route index element={<ChatManagement />} />
+            </Route>
+
+            <Route path="users" >
+              <Route index element={<List />} />
+              <Route path=":userId" element={<Single />} />
+              <Route path="new" element={<New inputs={userInput} title={"Add New User"} />} />
+            </Route>
+            <Route path="products" >
+              <Route index element={<List />} />
+              <Route path=":productId" element={<Single />} />
+              <Route path="new" element={<New />} />
+            </Route>
+            <Route path="orders" >
+              <Route index element={<List />} />
+              <Route path=":ordersId" element={<Single />} />
+              <Route path="new" element={<New />} />
+            </Route>
+            <Route path="delivery" >
+              <Route index element={<List />} />
+              <Route path=":deliveryId" element={<Single />} />
+              <Route path="new" element={<New />} />
             </Route>
           </Route>
           <Route path="/under-construction*" >

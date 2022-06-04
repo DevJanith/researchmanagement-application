@@ -1,3 +1,5 @@
+import CheckRoundedIcon from '@mui/icons-material/CheckRounded';
+import PendingIcon from '@mui/icons-material/Pending';
 import {
     Button, Card, Checkbox, Chip, Stack, Table, TableBody,
     TableCell, TableContainer,
@@ -9,8 +11,6 @@ import { Link as RouterLink } from 'react-router-dom';
 import Iconify from './Components/Iconify';
 import SearchNotFound from './Components/SearchNotFound';
 import { UserListHead, UserListToolbar, UserMoreMenu } from './sections/@dashboard/user';
-import PendingIcon from '@mui/icons-material/Pending';
-import CheckRoundedIcon from '@mui/icons-material/CheckRounded';
 // mock
 // import USERLIST from './_mock/user';
 
