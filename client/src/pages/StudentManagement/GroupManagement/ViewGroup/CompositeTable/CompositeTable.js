@@ -55,10 +55,16 @@ export default function CompositeTable(props) {
     const {
         value,
         setValue,
-        groups
+        groups,
+        groupData,
+        setGroupData,
+        handleSubmit,
+        clear,
+        currentId,
+        setCurrentId
     } = props
 
-    const [data, setData] = useState([]) 
+    const [data, setData] = useState([])
 
     useEffect(() => {
         if (groups) {
@@ -68,7 +74,7 @@ export default function CompositeTable(props) {
                 console.log(error)
             }
         }
-    }, [groups]) 
+    }, [groups])
 
 
     const [page, setPage] = useState(0);
@@ -160,7 +166,7 @@ export default function CompositeTable(props) {
                         />
                         <TableBody>
                             {filteredUsers.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((row) => {
-                                const { _id, groupName, memberCount, status, createdAt, updatedAt } = row;
+                                const { _id, groupName, memberCount, states, createdAt, updatedAt } = row;
                                 const isItemSelected = selected.indexOf(_id) !== -1;
 
                                 return (
@@ -177,12 +183,22 @@ export default function CompositeTable(props) {
                                         </TableCell>
                                         <TableCell align="left">{groupName}</TableCell>
                                         <TableCell align="left">{memberCount}</TableCell>
-                                        <TableCell align="left">{status == 1 ? 'active' : 'de-active'}</TableCell>
+                                        <TableCell align="left">{states == 1 ? 'active' : 'de-active'}</TableCell>
                                         <TableCell align="left">{createdAt}</TableCell>
                                         <TableCell align="left">{updatedAt}</TableCell>
 
                                         <TableCell align="right">
-                                            <UserMoreMenu />
+                                            <UserMoreMenu
+                                                row={row}
+                                                groupData={groupData}
+                                                setGroupData={setGroupData}
+                                                handleSubmit={handleSubmit}
+                                                clear={clear}
+                                                currentId={currentId}
+                                                setCurrentId={setCurrentId}
+                                                value={value}
+                                                setValue={setValue}
+                                            />
                                         </TableCell>
                                     </TableRow>
                                 );

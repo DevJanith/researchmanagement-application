@@ -7,7 +7,13 @@ const ViewGroup = (props) => {
     const {
         value,
         setValue,
-        groups
+        groups,
+        groupData,
+        setGroupData,
+        handleSubmit,
+        clear,
+        currentId,
+        setCurrentId
     } = props
 
     return (
@@ -16,6 +22,12 @@ const ViewGroup = (props) => {
                 value={value}
                 setValue={setValue}
                 groups={groups}
+                groupData={groupData}
+                setGroupData={setGroupData}
+                handleSubmit={handleSubmit}
+                clear={clear}
+                currentId={currentId}
+                setCurrentId={setCurrentId}
             />
         </>
     );

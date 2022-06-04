@@ -6,7 +6,7 @@ import * as Yup from 'yup';
 import { useDispatch, useSelector } from "react-redux";
 import { SelectField } from './Fields/CustomSelectFiled';
 import { getUserAccordingToType } from "../../../../../actions/auth"
-
+import { createGroup } from "../../../../../actions/group.action"
 
 const options = [
     { value: 'foo', label: 'Foo' },
@@ -16,24 +16,7 @@ const options = [
 
 export default function ItemCreateForm(props) {
 
-    const dispatch = useDispatch();
-
-    const [dataType, setDataType] = useState({
-        userType: ''
-    })
-
-    useEffect(() => {
-        try {
-            dataType.userType = "student"
-            dispatch(getUserAccordingToType(dataType));
-        } catch (error) {
-            console.log(error);
-        }
-    }, [dataType]);
-
-    const users = useSelector((state) => state.authReducer);
-
-    console.log(users)
+    const dispatch = useDispatch(); 
 
     const {
         groupData,
@@ -44,6 +27,7 @@ export default function ItemCreateForm(props) {
         setCurrentId,
         value,
         setValue,
+        options
     } = props
 
 
@@ -60,11 +44,12 @@ export default function ItemCreateForm(props) {
         onSubmit: (data, { resetForm }) => {
             console.log("test item form submit click")
             console.log(data)
+            data.groupID = "0a78d933-520e-430a-8192-df54b9bc3536"
+            data.states = "1"
 
-            // data.traderId = userData?.result?.traderId
-            // dispatch(createItem(data));
+            dispatch(createGroup(data));
             // notify()
-            // resetForm()
+            resetForm()
         },
     });
 

@@ -7,7 +7,19 @@ import Iconify from '../../../Components/Iconify';
 
 // ----------------------------------------------------------------------
 
-export default function UserMoreMenu() {
+export default function UserMoreMenu(props) {
+  const {
+    row,
+    groupData,
+    setGroupData,
+    handleSubmit,
+    clear,
+    currentId,
+    setCurrentId,
+    value,
+    setValue,
+} = props
+
   const ref = useRef(null);
   const [isOpen, setIsOpen] = useState(false);
 
@@ -34,7 +46,12 @@ export default function UserMoreMenu() {
           <ListItemText primary="Delete" primaryTypographyProps={{ variant: 'body2' }} />
         </MenuItem>
 
-        <MenuItem component={RouterLink} to="#" sx={{ color: 'text.secondary' }}>
+        <MenuItem to="#" sx={{ color: 'text.secondary' }}
+          onClick={() => {
+            setCurrentId(row._id)
+            // setValue(2)
+          }
+          }>
           <ListItemIcon>
             <Iconify icon="eva:edit-fill" width={24} height={24} />
           </ListItemIcon>

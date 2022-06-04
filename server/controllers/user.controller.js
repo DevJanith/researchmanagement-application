@@ -110,7 +110,8 @@ export const getUser = async (req, res) => {
 }
 
 export const getUserAccordingToType = async (req, res) => {
-    const { userType } = req.body;  
+    const { userType } = req.body;
+
     try {
         const users = await User.find({ "type": { $in: userType } })
 
