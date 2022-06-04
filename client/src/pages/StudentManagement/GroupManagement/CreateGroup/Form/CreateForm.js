@@ -10,7 +10,9 @@ export default function ItemCreateForm(props) {
 
     const {
         groupData,
-        options
+        options,
+        clear,
+        setValue
     } = props
 
     const dispatch = useDispatch();
@@ -29,6 +31,8 @@ export default function ItemCreateForm(props) {
             data.states = "1"
 
             dispatch(createGroup(data));
+            clear()
+            setValue(0)
             // notify()
             resetForm()
         },

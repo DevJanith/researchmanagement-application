@@ -57,14 +57,13 @@ export const createGroup = async (req, res) => {
 //update Group
 export const updateGroup = async (req, res) => {
     const { id } = req.params;
-    const { GroupName, GroupID, States, Created_Date, Updated_Date, Member_Count, ResearchID, FinalID } = req.body;
 
     try {
         if (!mongoose.Types.ObjectId.isValid(id)) {
             return res.status(404).send(`No Group Available with id: ${id}`);
         }
 
-        const updatedGroup = { GroupName, GroupID, States, Created_Date, Updated_Date, Member_Count, ResearchID, FinalID, _id: id };
+        const updatedGroup = { ...req.body, _id: id };
 
         await Group.findByIdAndUpdate(id, updatedGroup, { new: true });
 

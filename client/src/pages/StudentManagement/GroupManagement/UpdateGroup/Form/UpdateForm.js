@@ -10,7 +10,9 @@ export default function GroupUpdateForm(props) {
     const {
         groupData,
         options,
-        defaultOptions
+        defaultOptions,
+        clear,
+        setValue
     } = props
 
     const dispatch = useDispatch();
@@ -25,11 +27,13 @@ export default function GroupUpdateForm(props) {
     const formik = useFormik({
         initialValues: groupData,
         validationSchema: groupSchema,
-        onSubmit: (data, { resetForm }) => { 
-            console.log(data) 
-            data.states = "2"
+        onSubmit: (data, { resetForm }) => {
+            console.log(data)
+            data.states = "1"
 
-            dispatch(updateGroup(data));
+            dispatch(updateGroup(data._id, data));
+            clear()
+            setValue(0)
             // notify()
             resetForm()
         },
