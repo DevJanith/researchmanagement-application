@@ -1,0 +1,83 @@
+import { useRef, useState } from 'react';
+import { Link as RouterLink } from 'react-router-dom';
+// material
+import { Menu, MenuItem, IconButton, ListItemIcon, ListItemText } from '@mui/material';
+// component
+import Iconify from '../../../Components/Iconify';
+
+// ----------------------------------------------------------------------
+
+export default function UserMoreMenu(props) {
+  const {
+    row,
+    topics,
+    topicData,
+    setTopicData,
+    handleSubmit,
+    clear,
+    currentId,
+    setCurrentId,
+    value,
+    setValue
+  } = props;
+
+  const ref = useRef(null);
+  const [isOpen, setIsOpen] = useState(false);
+
+  return (
+    <>
+      <IconButton ref={ref} onClick={() => setIsOpen(true)}>
+        <Iconify icon="eva:more-vertical-fill" width={20} height={20} />
+      </IconButton>
+
+      <Menu
+        open={isOpen}
+        anchorEl={ref.current}
+        onClose={() => setIsOpen(false)}
+        PaperProps={{
+          sx: { width: 200, maxWidth: '100%' },
+        }}
+        anchorOrigin={{ vertical: 'top', horizontal: 'right' }}
+        transformOrigin={{ vertical: 'top', horizontal: 'right' }}
+      >
+
+        {/* -------Delete-------------
+        <MenuItem sx={{ color: 'text.secondary' }}>
+          <ListItemIcon>
+            <Iconify icon="eva:trash-2-outline" width={24} height={24} />
+          </ListItemIcon>
+          <ListItemText primary="Delete" primaryTypographyProps={{ variant: 'body2' }} />
+        </MenuItem> */}
+
+
+        {/* -------Update/Edit------------- */}
+        <MenuItem to="#" sx={{ color: 'text.secondary' }}
+          onClick={() => {
+            setCurrentId(row._id)
+            setValue(1)
+          }
+          }>
+          <ListItemIcon>
+            <Iconify icon="eva:edit-fill" width={24} height={24} />
+          </ListItemIcon>
+          <ListItemText primary="Edit" primaryTypographyProps={{ variant: 'body2' }} />
+        </MenuItem>
+
+        {/* -------view------------- */}
+        <MenuItem to="#" sx={{ color: 'text.secondary' }}
+          onClick={() => {
+            setCurrentId(row._id)
+            setValue(2)
+          }
+          }>
+          <ListItemIcon>
+            <Iconify icon="carbon:view-filled" width={24} height={24} />
+          </ListItemIcon>
+          <ListItemText primary="View" primaryTypographyProps={{ variant: 'body2' }} />
+        </MenuItem>
+
+
+      </Menu>
+    </>
+  );
+}

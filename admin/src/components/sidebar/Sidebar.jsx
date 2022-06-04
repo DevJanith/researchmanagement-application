@@ -165,7 +165,7 @@ const Sidebar = () => {
           </Paper>
 
           <Paper>
-            <Link to={"#"} style={{ textDecoration: "none" }}>
+            <Link to={"panel-research-topics"} style={{ textDecoration: "none" }}>
               <li>
                 <TopicIcon className="icon" />
                 <span>Research Topics</span>

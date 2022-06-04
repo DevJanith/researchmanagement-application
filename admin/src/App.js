@@ -22,6 +22,7 @@ import ResearchTopics from "./pages/StaffManagement/ResearchTopicsManagement/Res
 import StaffManagement from "./pages/StaffManagement/StaffManagement";
 import UnderContraction from "./pages/underContraction/UnderContraction";
 import PanelManagement from "./pages/PanelMemberManagement/PanelManagement/PanelManagement";
+import PanelResearchTopics from "./pages/PanelMemberManagement/ResearchTopicsManagement/ResearchTopics";
 import "./style/dark.scss";
 
 
@@ -66,6 +67,10 @@ function App() {
             {/* --------- Panel Member Management ------------*/}
             <Route path="panel-management">
               <Route index element={<PanelManagement />} />
+            </Route>
+
+            <Route path="panel-research-topics">
+              <Route index element={<PanelResearchTopics />} />
             </Route>
 
 
