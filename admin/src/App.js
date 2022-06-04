@@ -4,23 +4,24 @@ import {
 } from "react-router-dom";
 import { DarkModeContext } from "./context/darkModeContext";
 import { userInput } from "./formSource";
-import AdminManagement from "./pages/AdminManagement/AdminManagement";
+import AlocatePanel from "./pages/AdminManagement/AllocatePanel/AllocatePanel";
+import Materials from "./pages/AdminManagement/Materials/Materials";
+import UserReservation from "./pages/AdminManagement/UserReservation/UserReservation";
+// import UserReservation from "./pages/AdminManagement/UserReservation/UserReservation";
 import Auth from "./pages/auth/Auth";
 import CompositeTable from "./pages/CompositeTable/CompositeTable";
 import Home from "./pages/home/Home";
 import List from "./pages/list/list";
-import Login from "./pages/login/Login";
 import New from "./pages/new/New";
-import Registration from "./pages/registration/Registration";
+import NotFound from "./pages/notFound/NotFound";
 import Single from "./pages/single/Single";
+import ChatManagement from "./pages/StaffManagement/ChatFunctionManagement/ChatFunctionManagement";
 import MarkingSchemeManagement from "./pages/StaffManagement/MarkingSchemeManagement/MarkingSchemeManagement";
 import ResearchDocuments from "./pages/StaffManagement/ResearchDocuments";
 import ResearchTopics from "./pages/StaffManagement/ResearchTopicsManagement/ResearchTopics";
 import StaffManagement from "./pages/StaffManagement/StaffManagement";
 import UnderContraction from "./pages/underContraction/UnderContraction";
-import ChatManagement from "./pages/StaffManagement/ChatFunctionManagement/ChatFunctionManagement";
 import "./style/dark.scss";
-import NotFound from "./pages/notFound/NotFound";
 
 
 function App() {
@@ -39,7 +40,10 @@ function App() {
             {/* <Route path="login" element={<Login />} />
             <Route path="registration" element={<Registration />} />  */}
             <Route path="admin-management" >
-              <Route index element={<AdminManagement />} />
+              {/* <Route index element={<AdminManagement />} /> */}
+              <Route path="materials" element={<Materials />} />
+              <Route path="user-reservation" element={<UserReservation />} />
+              <Route path="alocate-panel" element={<AlocatePanel />} />
             </Route>
             <Route path="staff-management">
               <Route index element={<StaffManagement />} />
@@ -87,5 +91,8 @@ function App() {
     </div>
   );
 }
+// 
+
+
 
 export default App;

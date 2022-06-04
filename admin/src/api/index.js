@@ -5,10 +5,10 @@ const API = axios.create({
 })
 
 
-export const fetchPosts = () => API.get(`/posts`);
-export const createPost = (values) => API.post(`/posts`, values);
-export const deletePost = (id) => API.delete(` /posts/${id}`);
-
+export const fetchPresentationTemp = () => API.get(`/presentationTemplates`);
+export const createPresentationTemp = (values) => API.post(`/presentationTemplates`, values);
+export const deletePresentationTemp = (id) => API.delete(` /presentationTemplates/${id}`);
+// export const likePost = (id) => axios.patch(`${url}/${id}/likePost`);
 
 export const signIn = (formData) => API.post('/user/sign-in', formData);
 export const signUp = (formData) => API.post('/user/sign-up', formData);
