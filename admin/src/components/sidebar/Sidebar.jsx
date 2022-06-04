@@ -15,6 +15,7 @@ import StarIcon from '@mui/icons-material/Star';
 import PeopleAltIcon from '@mui/icons-material/PeopleAlt';
 import DuoIcon from '@mui/icons-material/Duo';
 import { Button, Paper } from "@mui/material";
+import CoPresentIcon from '@mui/icons-material/CoPresent';
 
 const Sidebar = () => {
   const { dispatch } = useContext(DarkModeContext);
@@ -72,7 +73,7 @@ const Sidebar = () => {
 
 
           
-          <p className="title">Staff Management</p>
+          <p className="title" style={{ marginTop: '40px'}}>Staff Management</p>
           <Paper>
           <Link to={"/staff-management"} style={{ textDecoration: "none" }}>
             <li>
@@ -105,6 +106,34 @@ const Sidebar = () => {
               <li><DuoIcon className="icon" /><span>Chat with Us!</span></li>
             </Link>
           </Paper>
+
+
+          <p className="title" style={{ marginTop: '40px'}}>Panel Members</p>
+          <Paper>
+            <Link to={"#"} style={{ textDecoration: "none" }}>
+              <li><PeopleAltIcon className="icon"/><span>Panel Members</span></li>
+            </Link>
+          </Paper>
+
+          <Paper>
+            <Link to={"#"} style={{ textDecoration: "none" }}>
+              <li><TopicIcon className="icon"/><span>Research Topics</span></li>
+            </Link>
+          </Paper>
+
+          <Paper>
+            <Link to={"#"} style={{ textDecoration: "none" }}>
+              <li><SchemaIcon className="icon"/><span>Presentation Marking Scheme</span></li>
+            </Link>
+          </Paper>
+
+          <Paper>
+            <Link to={"#"} style={{ textDecoration: "none" }}>
+              <li><CoPresentIcon className="icon"/><span>Presentation Documents</span></li>
+            </Link>
+          </Paper>
+
+
 
 
           {/* <Link to={"/login"} style={{ textDecoration: "none" }}> */}
