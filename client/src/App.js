@@ -7,7 +7,11 @@ import Auth from "./pages/auth/Auth";
 import CompositeTable from "./pages/CompositeTable/CompositeTable";
 import Home from "./pages/home/Home";
 import NotFound from "./pages/notFound/NotFound";
+import CommunicationManagement from "./pages/StudentManagement/CommunicationManagement/CommunicationManagement";
+import DocumentManagement from "./pages/StudentManagement/DocumenManagement/DocumenManagement";
 import GroupManagement from "./pages/StudentManagement/GroupManagement/GroupManagement";
+import RequestManagement from "./pages/StudentManagement/RequestManagement/RequestManagement";
+import ResearchManagement from "./pages/StudentManagement/ReserchManagement/ReserchManagement";
 import UnderContraction from "./pages/underContraction/UnderContraction";
 import PrivateRoutes from "./PrivateRoutes";
 import "./style/dark.scss";
@@ -23,38 +27,16 @@ function App() {
             <Route path="auth" element={<Auth />} />
             <Route path="/under-construction*" element={<UnderContraction />} />
             <Route path="/404*" element={<NotFound />} />
-
-            {/* <Route path="app" element={<Home />} /> */}
-            {/* <Route path="login" element={<Login />} />
-            <Route path="registration" element={<Registration />} /> */}
             <Route path="student-management" >
               <Route index element={<PrivateRoutes component={Home} />} />
               <Route path="group" element={<PrivateRoutes component={GroupManagement} />} />
+              <Route path="research" element={<PrivateRoutes component={ResearchManagement} />} />
+              <Route path="request" element={<PrivateRoutes component={RequestManagement} />} />
+              <Route path="document" element={<PrivateRoutes component={DocumentManagement} />} />
+              <Route path="communication" element={<PrivateRoutes component={CommunicationManagement} />} />
+
               <Route path="table" element={<PrivateRoutes component={CompositeTable} />} />
             </Route>
-            {/* <Route path="tutorial-management">
-              <Route index element={<TutorialManagement />} />
-            </Route>
-            <Route path="users" >
-              <Route index element={<List />} />
-              <Route path=":userId" element={<Single />} />
-              <Route path="new" element={<New inputs={userInput} title={"Add New User"} />} />
-            </Route>
-            <Route path="products" >
-              <Route index element={<List />} />
-              <Route path=":productId" element={<Single />} />
-              <Route path="new" element={<New />} />
-            </Route>
-            <Route path="orders" >
-              <Route index element={<List />} />
-              <Route path=":ordersId" element={<Single />} />
-              <Route path="new" element={<New />} />
-            </Route>
-            <Route path="delivery" >
-              <Route index element={<List />} />
-              <Route path=":deliveryId" element={<Single />} />
-              <Route path="new" element={<New />} />
-            </Route> */}
           </Route>
           <Route path='*' element={<Navigate to='/404' replace />} />
         </Routes>
