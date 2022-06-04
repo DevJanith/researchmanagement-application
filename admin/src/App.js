@@ -21,6 +21,7 @@ import ResearchDocuments from "./pages/StaffManagement/ResearchDocuments";
 import ResearchTopics from "./pages/StaffManagement/ResearchTopicsManagement/ResearchTopics";
 import StaffManagement from "./pages/StaffManagement/StaffManagement";
 import UnderContraction from "./pages/underContraction/UnderContraction";
+import PanelManagement from "./pages/PanelMemberManagement/PanelManagement/PanelManagement";
 import "./style/dark.scss";
 
 
@@ -61,6 +62,15 @@ function App() {
             <Route path="chat-function">
               <Route index element={<ChatManagement />} />
             </Route>
+
+            {/* --------- Panel Member Management ------------*/}
+            <Route path="panel-management">
+              <Route index element={<PanelManagement />} />
+            </Route>
+
+
+
+
 
             <Route path="users" >
               <Route index element={<List />} />

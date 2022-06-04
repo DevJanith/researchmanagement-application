@@ -156,7 +156,7 @@ const Sidebar = () => {
             Panel Members
           </p>
           <Paper>
-            <Link to={"#"} style={{ textDecoration: "none" }}>
+            <Link to={"/panel-management"} style={{ textDecoration: "none" }}>
               <li>
                 <PeopleAltIcon className="icon" />
                 <span>Panel Members</span>
