@@ -64,7 +64,7 @@ export default function ChatFunctionManagement() {
                                     Welcome to ChatBot! 
                                 </Typography>
                                 
-                                {/* <ChatFunction /> */}
+                                <ChatFunction />
 
                             </TabPanel>
                             <TabPanel value={value} index={1}>
