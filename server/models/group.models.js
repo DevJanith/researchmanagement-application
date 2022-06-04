@@ -7,16 +7,24 @@ const GroupSchema = mongoose.Schema({
     },
     groupID: {
         type: String,
-        required: true
     },
     memberCount: String,
     // researchID: String,
     // finalID: String,
     groupDetails: [
         {
-            studentID: String,
-            studentQNumber: String,
-            studentName: String,
+            userDetails: {
+                userQNumber: String,
+                userEmail: String,
+                userName: String,
+                userContactNumber: String,
+                userAddress: String,
+                userType: String,
+            },
+            states: String,
+            _id: String,
+            value: String,
+            label: String
         }
     ],
     states: {
