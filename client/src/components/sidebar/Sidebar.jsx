@@ -1,8 +1,10 @@
-import BookmarksSharpIcon from "@mui/icons-material/BookmarksSharp";
+import BiotechIcon from "@mui/icons-material/Biotech";
 import DashboardIcon from "@mui/icons-material/Dashboard";
-import ExitToAppIcon from "@mui/icons-material/ExitToApp";
 import GroupAddIcon from "@mui/icons-material/GroupAdd";
-import { Button } from "@mui/material";
+import RequestPageIcon from "@mui/icons-material/RequestPage";
+import DocumentScannerIcon from "@mui/icons-material/DocumentScanner";
+import MarkUnreadChatAltIcon from "@mui/icons-material/MarkUnreadChatAlt";
+import { Button, Paper } from "@mui/material";
 import { useContext, useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
@@ -35,115 +37,79 @@ const Sidebar = () => {
     <div className="sidebar">
       <div className="top">
         <Link to={"/"} style={{ textDecoration: "none" }}>
-          <span className="logo">Client | RMA</span>
+          <span className="logo">Student | RMA</span>
         </Link>
       </div>
       <hr />
       <div className="center">
         <ul>
-          {/* <p className="title">MAIN</p>
-          <Link to={"/"} style={{ textDecoration: "none" }}>
-            <li>
-              <DashboardIcon className="icon" />
-              <span>Dashboard</span>
-            </li>
-          </Link> */}
           <p className="title">Student Management</p>
-          <Link to={"/student-management"} style={{ textDecoration: "none" }}>
-            <li>
-              <DashboardIcon className="icon" />
-              <span>Dashboard</span>
-            </li>
-          </Link>
-          <Link
-            to={"/student-management/group"}
-            style={{ textDecoration: "none" }}
-          >
-            <li>
-              <GroupAddIcon className="icon" />
-              <span>Group Management</span>
-            </li>
-          </Link>
-          {/* <p className="title">Tutorial Management</p>
-          <Link to={"/tutorial-management"} style={{ textDecoration: "none" }}>
-            <li>
-              <BookmarksSharpIcon className="icon" />
-              <span>Tutorial Management</span>
-            </li>
-          </Link> */}
-          {/* <p className="title">LISTS</p>
-          <Link to={"/users"} style={{ textDecoration: "none" }}>
-            <li>
-              <PersonOutlineOutlinedIcon className="icon" />
-              <span>Users</span>
-            </li>
-          </Link>
-          <Link to={"/products"} style={{ textDecoration: "none" }}>
-            <li>
-              <StoreIcon className="icon" />
-              <span>Products</span>
-            </li>
-          </Link>
-          <Link to={"/orders"} style={{ textDecoration: "none" }}>
-            <li>
-              <PaymentIcon className="icon" />
-              <span>Orders</span>
-            </li>
-          </Link>
-          <Link to={"/delivery"} style={{ textDecoration: "none" }}>
-            <li>
-              <LocalShippingOutlinedIcon className="icon" />
-              <span>Delivery</span>
-            </li>
-          </Link>
-          <p className="title">USEFUL</p>
-          <Link to={"/under-construction"} style={{ textDecoration: "none" }}>
-            <li>
-              <QueryStatsIcon className="icon" />
-              <span>Stats</span>
-            </li>
-          </Link>
-          <Link to={"/under-construction"} style={{ textDecoration: "none" }}>
-            <li>
-              <NotificationsNoneIcon className="icon" />
-              <span>Notifications</span>
-            </li>
-          </Link>
-          <p className="title">SERVICE</p>
-          <Link to={"/under-construction"} style={{ textDecoration: "none" }}>
-            <li>
-              <SettingsSystemDaydreamIcon className="icon" />
-              <span>System Health</span>
-            </li>
-          </Link>
-          <Link to={"/under-construction"} style={{ textDecoration: "none" }}>
-            <li>
-              <PsychologyOutlinedIcon className="icon" />
-              <span>Logs</span>
-            </li>
-          </Link>
-          <Link to={"/under-construction"} style={{ textDecoration: "none" }}>
-            <li>
-              <SettingsIcon className="icon" />
-              <span>Settings</span>
-            </li>
-          </Link>
-          <p className="title">USER</p>
-          <Link to={"/users/:id"} style={{ textDecoration: "none" }}>
-            <li>
-              <AccountCircleOutlinedIcon className="icon" />
-              <span>Profile</span>
-            </li>
-          </Link> */}
-          {/* <Link to={"/login"} style={{ textDecoration: "none" }}> */}
-          {/* <li onClick={logout} style={{ marginTop: "80%" }}>
-            <ExitToAppIcon className="icon" />
-            <span>Logout</span>
-          </li> */}
-          {/* </Link> */}
+          <Paper>
+            <Link to={"/student-management"} style={{ textDecoration: "none" }}>
+              <li>
+                <DashboardIcon className="icon" />
+                <span>Dashboard</span>
+              </li>
+            </Link>
+          </Paper>
+          <Paper>
+            <Link
+              to={"/student-management/group"}
+              style={{ textDecoration: "none" }}
+            >
+              <li>
+                <GroupAddIcon className="icon" />
+                <span>Group </span>
+              </li>
+            </Link>
+          </Paper>
+          <Paper>
+            <Link
+              to={"/student-management/research"}
+              style={{ textDecoration: "none" }}
+            >
+              <li>
+                <BiotechIcon className="icon" />
+                <span>Research </span>
+              </li>
+            </Link>
+          </Paper>
+          <Paper>
+            <Link
+              to={"/student-management/request"}
+              style={{ textDecoration: "none" }}
+            >
+              <li>
+                <RequestPageIcon className="icon" />
+                <span>Request </span>
+              </li>
+            </Link>
+          </Paper>
+          <Paper>
+            <Link
+              to={"/student-management/document"}
+              style={{ textDecoration: "none" }}
+            >
+              <li>
+                <DocumentScannerIcon className="icon" />
+                <span>Doc </span>
+              </li>
+            </Link>
+          </Paper>
+          <Paper>
+            <Link
+              to={"/student-management/communication"}
+              style={{ textDecoration: "none" }}
+            >
+              <li>
+                <MarkUnreadChatAltIcon className="icon" />
+                <span>Com </span>
+              </li>
+            </Link>
+          </Paper>
         </ul>
       </div>
-      <div className="bottom">
+      {/* <div className="bottom">
         <Button variant="outlined" color="error" onClick={logout}>
           Log out
         </Button>
@@ -155,14 +121,7 @@ const Sidebar = () => {
           className="colorOption"
           onClick={() => dispatch({ type: "DARK" })}
         ></div>
-        {/* <div style={{ margin: "20px" }}>
-          <h5>
-            {user != null
-              ? user?.userDetails?.userName
-              : "Currently No User Available"}
-          </h5>
-        </div> */}
-      </div>
+      </div> */}
     </div>
   );
 };

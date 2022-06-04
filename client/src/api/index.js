@@ -11,7 +11,16 @@ export const deletePost = (id) => API.delete(` /posts/${id}`);
 
 
 export const signIn = (formData) => API.post('/user/sign-in', formData);
-export const signUp = (formData) => API.post('/user/sign-up', formData);
+export const signUp = (formData) => API.post('/user/sign-up', formData); 
+export const fetchUsers = () => API.get(`/user/all`);
+export const fetchUserAccordingToType = (userType) => API.post(`/user`, userType) 
+
+//group API
+export const fetchGroups = () => API.get(`/group`);
+export const fetchGroup = (id) => API.get(`/group/${id}`)
+export const createGroup = (groupData) => API.post(`/group`, groupData)
+export const updateGroup = (id, groupData) => API.patch(`/group/${id}`, groupData)
+export const deleteGroup = (id) => API.delete(`/group/${id}`)
 
 
 //get all (localhost:5000/tutorials)
