@@ -10,6 +10,7 @@ import PageLayout from '../../../components/Layout/PageLayout';
 import "./ResearchTopics.scss";
 import CompositeTable from './TopicList/CompositeTable';
 import TopicUpdate from "./TopicUpdate"
+import TopicView from './TopicView';
 
 function TabPanel(props) {
     const { children, value, index, ...other } = props;
@@ -142,8 +143,8 @@ export default function ResearchTopics() {
                     <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
                         <Tabs value={value} onChange={handleChange} aria-label="basic tabs example">
                             <Tab label="Research Topics" {...a11yProps(0)} />
-                            <Tab label="Update Topic" {...a11yProps(1)} />
-                            {/* <Tab label="Update Topic" {...a11yProps(2)} /> */}
+                            <Tab label="Update Topic" style={{ display: 'none'}} {...a11yProps(1)} />
+                            <Tab label="View Topic" style={{ display: 'none'}} {...a11yProps(2)} />
                         </Tabs>
                     </Box>
                     <TabPanel value={value} index={0}>
@@ -172,8 +173,8 @@ export default function ResearchTopics() {
 
                         />
                     </TabPanel>
-                    {/* <TabPanel value={value} index={1}>
-                        <TopicUpdate
+                    <TabPanel value={value} index={2}>
+                        <TopicView
                             topicData={topicData}
                             setTopicData={setTopicData}
                             handleSubmit={handleSubmit}
@@ -181,10 +182,10 @@ export default function ResearchTopics() {
                             currentId={currentId}
                             setCurrentId={setCurrentId}
                             value={value}
-                            setValue={setValue} 
+                            setValue={setValue}
                         />
-                    </TabPanel> */}
-                    {/* <TabPanel value={value} index={2}>
+                    </TabPanel>
+                    {/* {/* <TabPanel value={value} index={2}>
                         <TopicUpdate
                             topics={topics}
                         // clear={clear}

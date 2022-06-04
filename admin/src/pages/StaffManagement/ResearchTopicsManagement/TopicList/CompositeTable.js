@@ -6,6 +6,9 @@ import {
 } from '@mui/material';
 import { color } from '@mui/system';
 
+import Chip from '@mui/material/Chip';
+import PendingIcon from '@mui/icons-material/Pending';
+import CheckRoundedIcon from '@mui/icons-material/CheckRounded';
 import { sentenceCase } from 'change-case';
 import { filter } from 'lodash';
 import { useState } from 'react';
@@ -21,17 +24,17 @@ import USERLIST from './_mock/user';
 
 const TABLE_HEAD = [
 
-    { id: 'status', label: 'Status', align: 'center' },
-    { id: 'groupid', label: 'Group NO', alignRight: false },
+    { id: 'status', label: 'Status', alignRight: false },
+    { id: 'groupid', label: 'Group No', alignRight: false },
     // { id: 'leaderid', label: 'Leader IT_NO', alignRight: false },
     // { id: 'leader_email', label: 'Leader Email', alignRight: false },
     // { id: 'member1', label: 'Member #1 IT_NO', alignRight: false },
     // { id: 'member2', label: 'Member #2 IT_NO', alignRight: false },
     // { id: 'member3', label: 'Member #3 IT_NO', alignRight: false },
-    // { id: 'membercount', label: 'Member Count', alignRight: false },
+    { id: 'membercount', label: 'Member Count', alignRight: false },
     { id: 'research_topic', label: 'Research Topic', alignRight: false },
     // { id: 'research_field', label: 'Research Field', alignRight: false },
-    { id: 'description', label: 'Description', alignRight: false },
+    // { id: 'description', label: 'Description', alignRight: false },
     { id: 'supervisorName', label: 'Supervisor Name', alignRight: false },
     { id: 'co_supervisorName', label: 'Co-Supervisor Name', alignRight: false },
     // { id: 'Created_Date', label: 'CreatedAt', alignRight: false },
@@ -80,10 +83,6 @@ export default function CompositeTable(props) {
         value,
         setValue
     } = props;
-
-
-    console.log(topics)
-    console.log(USERLIST)
 
 
     const [page, setPage] = useState(0);
@@ -151,11 +150,8 @@ export default function CompositeTable(props) {
         <Container>
             <Stack direction="row" alignItems="center" justifyContent="space-between" mb={5}>
                 <Typography variant="h4" gutterBottom>
-                    Reserch Topic List
+                    Research Topics List
                 </Typography>
-                {/* <Button variant="contained" component={RouterLink} to="#" startIcon={<Iconify icon="eva:plus-fill" />}>
-                        New User
-                    </Button> */}
             </Stack>
 
             <Card>
@@ -176,7 +172,7 @@ export default function CompositeTable(props) {
                             <TableBody>
                                 {filteredUsers.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((row) => {
                                     // const { _id, status, groupid, leaderid, leader_email, member1, member2, member3, membercount, research_topic, research_field, description, supervisorName, co_supervisorName, Created_Date, Updated_Date } = row;
-                                    const { _id, status, groupid, research_topic, description, supervisorName, co_supervisorName} = row;
+                                    const { _id, status, groupid, research_topic, membercount, supervisorName, co_supervisorName} = row;
                                     const isItemSelected = selected.indexOf(_id) !== -1;
 
                                     return (
@@ -195,42 +191,30 @@ export default function CompositeTable(props) {
                                             <TableCell align="center">
                                                 {(status == "pending" ?
                                                     <>
-                                                        <Button variant="contained" color="error" style={{ borderRadius: '25px', fontSize: '11px' }}>
-                                                            pending
-                                                        </Button>
+                                                        <Chip icon={<PendingIcon />} label="pending" color="error" />
                                                     </>
                                                     :
                                                     <>
-                                                        <Button variant="contained" color="success" style={{ borderRadius: '25px', fontSize: '11px' }}>
-                                                            accepted
-                                                        </Button>
+                                                        <Chip icon={< CheckRoundedIcon />} label="accepted" color="success" />
                                                     </>
                                                 )}
                                             </TableCell>
 
                                             <TableCell component="left" > {groupid} </TableCell>
+                                            <TableCell component="left" > {membercount} </TableCell>
+                                            <TableCell component="left" > {research_topic} </TableCell>
+                                            <TableCell component="left" > {supervisorName} </TableCell>
+                                            <TableCell component="left" > {co_supervisorName} </TableCell>
+
                                             {/* <TableCell component="left" > {leaderid} </TableCell>
                                             <TableCell component="left" > {leader_email} </TableCell>
                                             <TableCell component="left" > {member1} </TableCell>
                                             <TableCell component="left" > {member2} </TableCell>
-                                            <TableCell component="left" > {member3} </TableCell>
-                                            <TableCell component="left" > {membercount} </TableCell> */}
-                                            <TableCell component="left" > {research_topic} </TableCell>
+                                            <TableCell component="left" > {member3} </TableCell> */}
                                             {/* <TableCell component="left" > {research_field} </TableCell> */}
-                                            <TableCell component="left" > {description} </TableCell>
-                                            <TableCell component="left" > {supervisorName} </TableCell>
-                                            <TableCell component="left" > {co_supervisorName} </TableCell>
+                                            {/* <TableCell component="left" > {description} </TableCell> */}
                                             {/* <TableCell component="left" > {Created_Date} </TableCell>
                                             <TableCell component="left" > {Updated_Date} </TableCell> */}
-
-                                            {/* <TableCell align="left">{company}</TableCell>
-                                            <TableCell align="left">{role}</TableCell>
-                                            <TableCell align="left">{isVerified ? 'Yes' : 'No'}</TableCell>
-                                            <TableCell align="left">
-                                                <Label variant="ghost" color={(status === 'banned' && 'error') || 'success'}>
-                                                    {sentenceCase(status)}
-                                                </Label>
-                                            </TableCell> */}
 
                                             <TableCell align="right">
                                                 <UserMoreMenu
