@@ -49,8 +49,7 @@ export const getResearch = async (req, res) => {
 }
 
 export const updateResearch = async (req, res) => {
-    const { id } = req.params;
-    const { researchTopic, researchField, description } = req.body;
+    const { id } = req.params; 
 
     try {
         if (!mongoose.Types.ObjectId.isValid(id)) {

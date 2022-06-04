@@ -55,8 +55,6 @@ export default function ResearchManagement() {
         researchTopic: '',
         researchField: '',
         description: '',
-        supervisorName: null,
-        groupDetails: null
     });
 
     const [currentId, setCurrentId] = useState(0)
@@ -73,7 +71,7 @@ export default function ResearchManagement() {
         } catch (error) {
             console.log(error);
         }
-    }, [value]);
+    }, []);
 
     const researches = useSelector((state) => state.researchReducer);
 
@@ -139,17 +137,27 @@ export default function ResearchManagement() {
                         <CreateResearch
                             value={value}
                             setValue={setValue}
-                            researches={researches}
-                            researchData={researchData}
-                            setResearchData={setResearchData}
-                            handleSubmit={handleSubmit}
+                            // researches={researches}
+                            // researchData={researchData}
+                            // setResearchData={setResearchData}
+                            // handleSubmit={handleSubmit}
                             clear={clear}
                             currentId={currentId}
                             setCurrentId={setCurrentId}
                         />
                     </TabPanel>
                     <TabPanel value={value} index={2}>
-                        <UpdateResearch />
+                        <UpdateResearch
+                            value={value}
+                            setValue={setValue}
+                            // researches={researches}
+                            // researchData={researchData}
+                            // setResearchData={setResearchData}
+                            // handleSubmit={handleSubmit}
+                            clear={clear}
+                            currentId={currentId}
+                            setCurrentId={setCurrentId}
+                        />
                     </TabPanel>
                 </Box>
             </div>

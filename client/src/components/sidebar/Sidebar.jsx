@@ -59,7 +59,7 @@ const Sidebar = () => {
             >
               <li>
                 <GroupAddIcon className="icon" />
-                <span>Group </span>
+                <span>Group Management</span>
               </li>
             </Link>
           </Paper>
@@ -70,7 +70,7 @@ const Sidebar = () => {
             >
               <li>
                 <BiotechIcon className="icon" />
-                <span>Research </span>
+                <span>Research Management</span>
               </li>
             </Link>
           </Paper>
@@ -81,7 +81,7 @@ const Sidebar = () => {
             >
               <li>
                 <RequestPageIcon className="icon" />
-                <span>Request </span>
+                <span>Request Management</span>
               </li>
             </Link>
           </Paper>
@@ -92,7 +92,7 @@ const Sidebar = () => {
             >
               <li>
                 <DocumentScannerIcon className="icon" />
-                <span>Doc </span>
+                <span>Doc Management</span>
               </li>
             </Link>
           </Paper>
@@ -103,7 +103,7 @@ const Sidebar = () => {
             >
               <li>
                 <MarkUnreadChatAltIcon className="icon" />
-                <span>Com </span>
+                <span>Com Management</span>
               </li>
             </Link>
           </Paper>

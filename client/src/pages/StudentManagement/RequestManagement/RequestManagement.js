@@ -3,7 +3,9 @@ import Tab from '@mui/material/Tab';
 import Tabs from '@mui/material/Tabs';
 import Typography from '@mui/material/Typography';
 import PropTypes from 'prop-types';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from "react-redux";
+import { createResearch, getResearches, updateResearch } from "../../../actions/research.action";
 import PageLayout from '../../../components/Layout/PageLayout';
 import CreateRequest from './CreateRequest/CreateRequest';
 import UpdateRequest from './UpdateRequest/UpdateRequest';
@@ -49,6 +51,68 @@ export default function RequestManagement() {
         setValue(newValue);
     };
 
+    const dispatch = useDispatch();
+    const [researchData, setResearchData] = useState({
+        researchTopic: '',
+        researchField: '',
+        description: '',
+        supervisorDetails: null,
+        groupDetails: null
+    });
+
+    const [currentId, setCurrentId] = useState(0)
+
+    useEffect(() => {
+        if (currentId != 0) {
+            setValue(2)
+        }
+    }, [currentId])
+
+    useEffect(() => {
+        try {
+            dispatch(getResearches());
+        } catch (error) {
+            console.log(error);
+        }
+    }, []);
+
+    const researches = useSelector((state) => state.researchReducer);
+
+    const researchFormData = useSelector((state) => (currentId ? state.researchReducer.find((data) => data._id === currentId) : null));
+
+    useEffect(() => {
+        if (researchFormData) {
+            setResearchData(researchFormData);
+        }
+    }, [researchFormData]);
+
+    // console.log(currentId)
+    // console.log(ResearchData)
+
+    const clear = () => {
+        setCurrentId(0);
+        setResearchData({
+            researchTopic: '',
+            researchField: '',
+            description: '',
+            supervisorName: null,
+            groupDetails: null
+        });
+    };
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+
+        if (currentId === 0) {
+            dispatch(createResearch(researchData));
+            clear();
+        } else {
+            dispatch(updateResearch(currentId, researchData));
+            clear();
+        }
+    };
+
+
     return (
         <PageLayout>
             <div className='group-management-tabs'>
@@ -61,10 +125,30 @@ export default function RequestManagement() {
                         </Tabs>
                     </Box>
                     <TabPanel value={value} index={0}>
-                        <ViewRequest />
+                        <ViewRequest
+                            value={value}
+                            setValue={setValue}
+                            researches={researches}
+                            researchData={researchData}
+                            setResearchData={setResearchData}
+                            handleSubmit={handleSubmit}
+                            clear={clear}
+                            currentId={currentId}
+                            setCurrentId={setCurrentId}
+                        />
                     </TabPanel>
                     <TabPanel value={value} index={1}>
-                        <CreateRequest />
+                        <CreateRequest
+                            value={value}
+                            setValue={setValue}
+                            // researches={researches}
+                            // researchData={researchData}
+                            // setResearchData={setResearchData}
+                            // handleSubmit={handleSubmit}
+                            clear={clear}
+                            currentId={currentId}
+                            setCurrentId={setCurrentId}
+                        />
                     </TabPanel>
                     <TabPanel value={value} index={2}>
                         <UpdateRequest />

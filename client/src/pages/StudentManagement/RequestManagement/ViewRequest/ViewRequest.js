@@ -4,9 +4,9 @@ const ViewRequest = (props) => {
   const {
     value,
     setValue,
-    groups,
-    groupData,
-    setGroupData,
+    researches,
+    researchData,
+    setResearchData,
     handleSubmit,
     clear,
     currentId,
@@ -18,9 +18,9 @@ const ViewRequest = (props) => {
       <CompositeTable
         value={value}
         setValue={setValue}
-        groups={groups}
-        groupData={groupData}
-        setGroupData={setGroupData}
+        researches={researches}
+        researchData={researchData}
+        setResearchData={setResearchData}
         handleSubmit={handleSubmit}
         clear={clear}
         currentId={currentId}

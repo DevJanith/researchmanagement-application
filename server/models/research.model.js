@@ -11,25 +11,192 @@ const ResearchSchema = mongoose.Schema({
         type: String
     },
     supervisorDetails: {
-        supervisorId: String,
-        supervisorName: String
+        email: {
+            type: String,
+            required: true,
+            unique: true
+        },
+        password: {
+            type: String,
+            required: true
+        },
+        type: {
+            type: String,
+            required: true
+        },
+        userDetails: {
+            userQNumber: {
+                type: String,
+                required: true,
+                unique: true
+            },
+            userEmail: {
+                type: String,
+                required: true,
+            },
+            userName: {
+                type: String,
+                required: true
+            },
+            userContactNumber: {
+                type: String,
+                required: true
+            },
+            userAddress: {
+                type: String,
+                required: true
+            },
+            userFaculty: {
+                type: String
+            },
+            userField: {
+                type: String
+            },
+            // tags: e.target.value.split(',')
+            userSpecializedCriteria: [
+                String
+            ],
+            userType: {
+                type: String,
+                required: true
+            },
+        },
+        value: String,
+        label: String
     },
     coSupervisorDetails: {
-        coSupervisorId: String,
-        coSupervisorName: String
+        email: {
+            type: String,
+            required: true,
+            unique: true
+        },
+        password: {
+            type: String,
+            required: true
+        },
+        type: {
+            type: String,
+            required: true
+        },
+        userDetails: {
+            userQNumber: {
+                type: String,
+                required: true,
+                unique: true
+            },
+            userEmail: {
+                type: String,
+                required: true,
+            },
+            userName: {
+                type: String,
+                required: true
+            },
+            userContactNumber: {
+                type: String,
+                required: true
+            },
+            userAddress: {
+                type: String,
+                required: true
+            },
+            userFaculty: {
+                type: String
+            },
+            userField: {
+                type: String
+            },
+            // tags: e.target.value.split(',')
+            userSpecializedCriteria: [
+                String
+            ],
+            userType: {
+                type: String,
+                required: true
+            },
+        },
+        value: String,
+        label: String
     },
     panelMemberDetails: {
-        panelId: String,
-        panelName: String
+        email: {
+            type: String,
+            required: true,
+            unique: true
+        },
+        password: {
+            type: String,
+            required: true
+        },
+        type: {
+            type: String,
+            required: true
+        },
+        userDetails: {
+            userQNumber: {
+                type: String,
+                required: true,
+                unique: true
+            },
+            userEmail: {
+                type: String,
+                required: true,
+            },
+            userName: {
+                type: String,
+                required: true
+            },
+            userContactNumber: {
+                type: String,
+                required: true
+            },
+            userAddress: {
+                type: String,
+                required: true
+            },
+            userFaculty: {
+                type: String
+            },
+            userField: {
+                type: String
+            },
+            // tags: e.target.value.split(',')
+            userSpecializedCriteria: [
+                String
+            ],
+            userType: {
+                type: String,
+                required: true
+            },
+        },
+        value: String,
+        label: String
     },
     groupDetails: {
-        groupId: String,
+        groupName: {
+            type: String,
+            required: true
+        },
+        groupID: {
+            type: String,
+        },
         memberCount: String,
-        groupMembers: [
+        // researchID: String,
+        // finalID: String,
+        groupDetails: [
             {
-                studentID: String,
-                studentQNumber: String,
-                studentName: String,
+                userDetails: {
+                    userQNumber: String,
+                    userEmail: String,
+                    userName: String,
+                    userContactNumber: String,
+                    userAddress: String,
+                    userType: String,
+                },
+                states: String,
+                _id: String,
+                value: String,
+                label: String
             }
         ],
     },
