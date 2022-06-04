@@ -4,7 +4,7 @@ import {
 import { styled } from '@mui/material/styles';
 import React from 'react';
 // import Scrollbar from '../../';
-import TopicUpdateForm from "./Form/TopicUpdateForm"
+import TopicViewForm from './Form/TopicViewForm';
 
 
 const ContentStyle = styled('div')(({ theme }) => ({
@@ -14,7 +14,7 @@ const ContentStyle = styled('div')(({ theme }) => ({
 }));
 
 
-const TopicUpdate = (props) => {
+const TopicView = (props) => {
     const {
         topics,
         topicData,
@@ -31,16 +31,16 @@ const TopicUpdate = (props) => {
         <>
             <Container>
                 <Stack direction="row" alignItems="center" justifyContent="space-between" mb={5}>
-                    <Typography variant="h4" gutterBottom>
-                        Update Topic Details
+                    <Typography variant="h5" gutterBottom>
+                        View Topic Details
                     </Typography>
                 </Stack>
                 <Card>
                     {/* <Scrollbar> */}
                     <Container maxWidth="md">
                         <ContentStyle>
-                            <Typography sx={{ color: 'text.secondary', mb: 5, fontSize: '15px' }}>** If relevant, State if you are interested in this Research topic</Typography>
-                            <TopicUpdateForm
+                            {/* <Typography sx={{ color: 'text.secondary', mb: 5, fontSize: '15px' }}>** If relevant, State if you are interested in this Research topic</Typography> */}
+                            <TopicViewForm
                                 topics={topics}
                                 topicData={topicData}
                                 setTopicData={setTopicData}
@@ -60,4 +60,4 @@ const TopicUpdate = (props) => {
     )
 }
 
-export default TopicUpdate
+export default TopicView

@@ -13,14 +13,15 @@ import Login from "./pages/login/Login";
 import New from "./pages/new/New";
 import Registration from "./pages/registration/Registration";
 import Single from "./pages/single/Single";
-import StaffManagement from "./pages/StaffManagement/StaffManagement";
-import ResearchTopics from "./pages/StaffManagement/ResearchTopicsManagement/ResearchTopics";
-import MarkingScheme from "./pages/StaffManagement/MarkingScheme";
+import MarkingSchemeManagement from "./pages/StaffManagement/MarkingSchemeManagement/MarkingSchemeManagement";
 import ResearchDocuments from "./pages/StaffManagement/ResearchDocuments";
+import ResearchTopics from "./pages/StaffManagement/ResearchTopicsManagement/ResearchTopics";
+import StaffManagement from "./pages/StaffManagement/StaffManagement";
 import UnderContraction from "./pages/underContraction/UnderContraction";
-
+import ChatManagement from "./pages/StaffManagement/ChatFunctionManagement/ChatFunctionManagement";
 import "./style/dark.scss";
 import NotFound from "./pages/notFound/NotFound";
+
 
 function App() {
 
@@ -48,10 +49,13 @@ function App() {
               <Route index element={<ResearchTopics />} />
             </Route>
             <Route path="marking-scheme">
-              <Route index element={<MarkingScheme />} />
+              <Route index element={<MarkingSchemeManagement />} />
             </Route>
             <Route path="research-document">
               <Route index element={<ResearchDocuments />} />
+            </Route>
+            <Route path="chat-function">
+              <Route index element={<ChatManagement />} />
             </Route>
 
             <Route path="users" >
