@@ -1,9 +1,8 @@
 import { Stack, Typography } from '@mui/material';
 import React, { useEffect, useState } from 'react';
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { getUserAccordingToType } from "../../../../actions/auth";
 import GroupUpdateForm from './Form/UpdateForm';
-import { useDispatch } from "react-redux";
 
 
 const UpdateGroup = (props) => {
@@ -49,14 +48,7 @@ const UpdateGroup = (props) => {
                 user.label = `${user?.userDetails?.userName} - ${user?.userDetails?.userQNumber}`
             ))
             setOptions(users)
-            // console.log(groupData)
-            groupData?.groupDetails.map((data, index) => {
-                data.value = data._id
-                data.label = `${data?.studentName} - ${data?.studentID}`
-            })
-            // console.log(groupData?.groupDetails)
             setDefaultOptions(groupData?.groupDetails)
-            // groupData.value = groupData._id
         } catch (error) {
             console.log(error)
         }

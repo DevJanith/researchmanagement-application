@@ -38,6 +38,8 @@ export const getSpecifiedGroup = async (req, res) => {
 export const createGroup = async (req, res) => {
     const groups = req.body;
 
+    groups.groupID = "RG-" + Math.floor(100000 + Math.random() * 900000);
+
     const newGroup = new Group(groups);
     try {
         await newGroup.save();

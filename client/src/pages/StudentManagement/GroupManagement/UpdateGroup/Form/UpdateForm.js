@@ -6,22 +6,9 @@ import * as Yup from 'yup';
 import { updateGroup } from "../../../../../actions/group.action";
 import { SelectField } from './Fields/CustomSelectFiled';
 
-const options = [
-    { value: 'foo', label: 'Foo' },
-    { value: 'bar', label: 'Bar' },
-]
-
-
 export default function GroupUpdateForm(props) {
     const {
         groupData,
-        setGroupData,
-        handleSubmitForm,
-        clear,
-        currentId,
-        setCurrentId,
-        value,
-        setValue,
         options,
         defaultOptions
     } = props
@@ -38,11 +25,9 @@ export default function GroupUpdateForm(props) {
     const formik = useFormik({
         initialValues: groupData,
         validationSchema: groupSchema,
-        onSubmit: (data, { resetForm }) => {
-            console.log("test item form submit click")
-            console.log(data)
-            data.groupID = "0a78d933-520e-430a-8192-df54b9bc3536"
-            data.states = "1"
+        onSubmit: (data, { resetForm }) => { 
+            console.log(data) 
+            data.states = "2"
 
             dispatch(updateGroup(data));
             // notify()

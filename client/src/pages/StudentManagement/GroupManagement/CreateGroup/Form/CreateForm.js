@@ -1,35 +1,19 @@
 import { Button, Stack, TextField } from '@mui/material';
 import { Field, Form, FormikProvider, useFormik } from 'formik';
-import React, { useEffect, useState } from 'react';
-import makeAnimated from 'react-select/animated';
+import React from 'react';
+import { useDispatch } from "react-redux";
 import * as Yup from 'yup';
-import { useDispatch, useSelector } from "react-redux";
+import { createGroup } from "../../../../../actions/group.action";
 import { SelectField } from './Fields/CustomSelectFiled';
-import { getUserAccordingToType } from "../../../../../actions/auth"
-import { createGroup } from "../../../../../actions/group.action"
-
-const options = [
-    { value: 'foo', label: 'Foo' },
-    { value: 'bar', label: 'Bar' },
-]
-
 
 export default function ItemCreateForm(props) {
 
     const {
         groupData,
-        setGroupData,
-        handleSubmitForm,
-        clear,
-        currentId,
-        setCurrentId,
-        value,
-        setValue,
         options
     } = props
 
     const dispatch = useDispatch();
-
 
     const groupSchema = Yup.object().shape({
         groupName: Yup.string().required('group Name is required'),
@@ -37,14 +21,11 @@ export default function ItemCreateForm(props) {
         // groupDetails: "",
     });
 
-
     const formik = useFormik({
         initialValues: groupData,
         validationSchema: groupSchema,
         onSubmit: (data, { resetForm }) => {
-            console.log("test item form submit click")
             console.log(data)
-            data.groupID = "0a78d933-520e-430a-8192-df54b9bc3536"
             data.states = "1"
 
             dispatch(createGroup(data));
