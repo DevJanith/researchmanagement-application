@@ -1,11 +1,8 @@
+import { IconButton, ListItemIcon, ListItemText, Menu, MenuItem } from '@mui/material';
 import { useRef, useState } from 'react';
-import { Link as RouterLink } from 'react-router-dom';
-// material
-import { Menu, MenuItem, IconButton, ListItemIcon, ListItemText } from '@mui/material';
-// component
+import { useDispatch } from 'react-redux';
+import { deleteGroup } from "../../../../../../../../actions/group.action";
 import Iconify from '../../../Components/Iconify';
-
-// ----------------------------------------------------------------------
 
 export default function UserMoreMenu(props) {
   const {
@@ -18,8 +15,10 @@ export default function UserMoreMenu(props) {
     setCurrentId,
     value,
     setValue,
-} = props
+  } = props
 
+  const dispatch = useDispatch();
+  
   const ref = useRef(null);
   const [isOpen, setIsOpen] = useState(false);
 
@@ -39,7 +38,7 @@ export default function UserMoreMenu(props) {
         anchorOrigin={{ vertical: 'top', horizontal: 'right' }}
         transformOrigin={{ vertical: 'top', horizontal: 'right' }}
       >
-        <MenuItem sx={{ color: 'text.secondary' }}>
+        <MenuItem sx={{ color: 'text.secondary' }} onClick={(e) => { dispatch(deleteGroup(row._id)) }}>
           <ListItemIcon>
             <Iconify icon="eva:trash-2-outline" width={24} height={24} />
           </ListItemIcon>
